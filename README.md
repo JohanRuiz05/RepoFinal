@@ -1,35 +1,37 @@
-# Implementación de FemtoRV para Tiny Tapeout
+# Implementación de FemtoRV y Tiny Tapeout
 
 A continuación se realiza una descripción del procedimiento llevado a cabo para la implementación del procesador RISC-V FemtoRV, basado en el desarrollo de Bruno Levy, a través de herramientas de diseño VLSI libres y open-source para su posterior envío al proyecto educativo Tiny Tapeout, que permite manufacturar un chip real a partir del desarrollo realizado. El diagrama de bloques del procesador propuesto se observa a continuación.
 
 ![PROCESSOR](img/riscv-Levy.png)
 
+Para cumplir con el objetivo, se siguió el flujo de diseño VLSI, que comienza con el diseño de la arquitectura (ya desarrollada) hasta alcanzar el diseño físico, basado en la simulación del circuito. Para esto, se usaba la descripción RTL y la síntesis lógica para llegar a nivel de compuertas, las cuáles se simulaban con el objetivo de verificar el funcionamiento. Una vez concluido lo anterior, se procedió a la fabricación del chip diseñado, por medio de Tiny Tapeout. El proceso se observa a continuación.
+
+![PROCESSOR](img/VLSI_design.png)
+
 ## Descripción general
 
-Para que el procesador fue implementado inicialmente en Verilog, a través de diferentes módulos que aseguraban su funcionamiento. El módulo principal (top) es femto.v, que instancia la memoria y los diferentes periféricos necesarios. La memoria usaba la interfaz SPI (Serial Peripheral Interface) para la comunicación y contaba tanto con una memoria flash para el sistema (mappedSPIFlash.v), como una memoria RAM para el funcionamiento activo del procesador (mappedSPIRAM.v); mientras que como periféricos se tenía la UART, necesaria para verificar la correcta ejecución de las diferentes tareas en el procesador (uart.v). Adicionalmente, se tenían periféricos de prueba como el multiplicador, divisor, entre otros, que aunque se encuentran entre los archivos src, no fueron utilizados para disminuir el tamaño y complejidad del sistema.
+El procesador FemtoRV fue implementado inicialmente usando el lenguaje de descripción de hardware (HDL) Verilog, basado en un diseño por módulos lógicos controlados por un archivo top. El módulo principal (top) es femto.v, que instancia la memoria y los diferentes periféricos requeridos para el procesador. La memoria usaba la interfaz SPI (Serial Peripheral Interface) para la comunicación y contaba tanto con una memoria flash para el sistema (mappedSPIFlash.v), como una memoria RAM para el funcionamiento activo del procesador (mappedSPIRAM.v); mientras que como periférico se estableció la UART, necesaria para verificar la correcta ejecución de las diferentes tareas en el procesador (uart.v). Adicionalmente, se tenían periféricos de prueba como el multiplicador, divisor, entre otros, que no fueron utilizados para disminuir el tamaño y complejidad del sistema. Los archivos fuente en Verilog de la implementación se pueden encontrar en la carpeta [OpenLane/src](../src). 
 
-Los archivos en Verilog de la implementación se pueden encontrar en la carpeta [femtoRV/src](../src). 
+Para ver el flujo de diseño original, se puede consultar el git [VLSI](https://github.com/cicamargoba/VLSI.git). Este contiene los archivos originales generados durante el diseño inicial, permitiendo analizar sus componentes, entradas, salidas y lógica de implementación. 
 
-Para ver el flujo de diseño original, se puede consultar el GitHub [VLSI](https://github.com/cicamargoba/VLSI.git), en la carpeta femtoRV/OpenLane. Este contiene el femto.v inicial sin las adaptaciones necesarias para Tiny Tapeout, permitiendo ver de manera clara las entradas y salidas del procesador, así como el funcionamiento completo del sistema.  
-
-## Herramientas necesarias 
+## Herramientas de diseño y simulación
 
 ### Flujo ASIC
 
-Para la instalación de herramientas de flujo ASIC se puede seguir el README disponible en [VLSI](https://github.com/cicamargoba/VLSI/blob/main/README.md), donde se incluye:
+Para la instalación de herramientas de flujo ASIC se puede seguir el README disponible en [README](https://github.com/cicamargoba/VLSI/blob/main/README.md), donde se incluye:
 
-1. Yosys -> Framework para Síntesis Verilog-RTL
-2. Icarus Verilog -> COmpilador de Verilog para generar netlists 
-3. GTKWave -> Visualizador de formas de onda (waveforms) compatible con formatos como VCD
-4. NGSpice -> Simulador SPICE para circuitos analógicos, digitales y mixtos
-5. OpenSTA -> Verificador de timing estático (STA) para gates
-6. Magic -> Herramienta de EDA para diseño basado en VLSI
-7. OpenLane -> Flujo automatizado que abarca desde RTL hasta GDSII, integrando herramientas como OpenROAD, Yosys, Magic, Netgen, KLayout, entre otras.
-8. Docker -> Algunas partes del flujo de trabajo lo requieren
+1. Yosys             -> Framework para Síntesis Verilog-RTL
+2. Icarus Verilog    -> COmpilador de Verilog para generar netlists 
+3. GTKWave           -> Visualizador de formas de onda (waveforms) compatible con formatos como VCD
+4. NGSpice           -> Simulador SPICE para circuitos analógicos, digitales y mixtos
+5. OpenSTA           -> Verificador de timing estático (STA) para gates
+6. Magic             -> Herramienta de EDA para diseño basado en VLSI
+7. OpenLane          -> Flujo automatizado que abarca desde RTL hasta GDSII, integrando herramientas como OpenROAD, Yosys, Magic, Netgen, KLayout, entre otras.
+8. Docker            -> Algunas partes del flujo de trabajo lo requieren
 
-### Diseño de circuito
+### Diseño de circuito y físico
 
-Por otra parte, es necesario instalar otras herramientas que permiten el diseño y simulación del sistema, correspondientes a OpenPDK, que habilita el uso de Sky130 para el diseño de circuitos integrados (y que es usado por Tiny Tapeout); y Xyce, un simulador de circuitos analógicos de alto rendimiento. 
+Además de las herramientas propias del flujo ASIC, fue necesario instalar dos herramientas para el diseño físico y de circuito, correspondientes a OpenPDK, que habilita el uso de Sky130 para el diseño de circuitos integrados (y que es usado por Tiny Tapeout); y Xyce, un simulador de circuitos analógicos de alto rendimiento. Los comandos para su instalación se muestran a continuación.
 
 9. OpenPDK
 
@@ -50,13 +52,39 @@ cd Xyce-build/
 sudo make install prefix=/usr/local
 ```
 
-Los archivos de salida de OpenPDK pueden no ser leídos al ejecutar Xyce por guardarse con un nombre diferente durante la instalación. Para evitarlo, se puede renombrar la carpeta de salida como /.volare (generando una carpeta oculta).
+Los archivos de instalación de OpenPDK pueden no ser leídos al ejecutar Xyce por guardarse con un nombre diferente durante la instalación. Para evitarlo, se puede renombrar la carpeta de salida como /.volare (generando una carpeta oculta), la cual contiene las librerías necesarias para el funcionamiento del flujo propuesto.
 
 ## Flujo de trabajo
 
-Para la síntesis del circuito a partir de los archivos en Verilog se usó iverilog, con la que se obtenían los archivos necesarios para la simulación inicial (como el .vcd). Las pruebas previas se realizaron con un Testbench para femto (femto_TB.v) y el uso de GTKWave, con el que se añadían las diferentes señales de interés para verificar su funcionamiento. La carpeta femtoRV en [VLSI](https://github.com/cicamargoba/VLSI.git) contiene los archivos generados tanto de hardware (.v) como de firmware (.hex), así como plantillas de GTKWave (.gtkw) para el análisis de las señales. La versión final con los archivos usados en simulación se encuentra en el respositorio [femto](https://github.com/JohanRuiz05/femto), con organización similar a VLSI.
+### 1. Compilación
 
-### Síntesis
+La verificación inicial del diseño en Verilog a partir de los archivos fuente se realizó por medio de Icarus Verilog, un compilador de código abierto usado para verificar el diseño de circuitos digitales antes de la implementación. Para su uso, se debe contar con un archivo Testbench, donde se generan señales de prueba que actúan como entradas para el módulo principal (femto) con el objetivo de verificar el correcto funcionamiento del diseño realizado. El comando general para la compilación con iverilog es:
+
+```bash
+iverilog -DFUNCTIONAL (TARGET)_TB.v (OBJS)
+```
+
+Donde TARGET hace referencia al nombre del Testbench de prueba y OBJS es una estructura donde se pueden agrupar los diferentes archivos fuente del diseño. El resultado de este procedimiento es un archivo ejecutable llamado a.out por defecto (con compiladores gcc como es el caso), que convierte los datos de salida en señales que pueden ser observadas con programas como GTKWave. La simulación del archivo se hace con el comando:
+
+```bash
+vvp a.out
+```
+
+El cual genera un archivo VCD (.vcd) que contiene las señales asociadas a las entradas, salidas y señales intermedias del diseño. Para su visualización y análisis se usó GTKWave, donde se pueden ubicar las diferentes señales de interés en un panel de formas de onda, además de guardar archivos de escritura .gtkw para mantener las trazas necesarias ante cambios o correciones. Adicionalmente, es posible realizar este proceso a partir del firmware (archivos .hex), con archivos como los que se encuentran en la carpeta principal de este repositorio.
+
+### 2. Síntesis y flujo de diseño ASIC
+
+Para pasar del diseño digital RTL descrito al diseño de chips ASIC, se usó la herramienta de código abierto OpenLane, que permite llegar a los resultados de implementación física para fabricación con varias etapas de procesamiento intermedias. El objetivo de este paso era asegurar que el diseño fuera adecuado a nivel de circuito real (basado en transistores) antes del paso de envío a Tiny Tapeout.
+
+OpenLane toma los archivos disponibles en la carpeta [OpenLane](/OpenLane) y automatiza el flujo de diseño en cinco etapas:
+
+1. Síntesis: Convierte el código de Verilog en una netlist de compuertas lógicas por medio de la herramienta Yosys.
+2. Floorplan: Hace un plano de circuito a nivel de compuertas lógicas.
+3. Placement: Ubica cada bloque de circuito sobre el chip.
+4. Routing: Conecta cada compuerta y bloque de manera física dentro del chip, respetando las restricciones de tiempo y área.
+5. Timing Analysis: Comprueba que las señales cumplan con tiempos, evitando errores de sincronización. 
+
+
 
 El flujo de diseño inicial se realiza a partir de OpenLane, que genera los resultados que se usaron para los pasos descritos. OpenLane toma los archivos disponibles en [femtoRV/OpenLane](https://github.com/cicamargoba/VLSI/tree/main/femtoRV/OpenLane), incluyendo los archivos fuente descritos, y automatiza el flujo, generando las carpetas final, floorplan, placement, routing y synthesis en la carpeta llamada OpenLane/designs/.../runs/full/results (... es el nombre dado en el comando, como se verá a continuación), donde se encuentran los archivos necesarios para los pasos posteriores. La carpeta OpenLane corresponde a la de origen del programa (generalmente llamada OpenLane y ubicada en donde fue instalada la herramienta). El comando a ejecutar dentro de la carpeta es:
 
