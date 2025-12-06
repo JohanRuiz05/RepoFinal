@@ -1,0 +1,13 @@
+{
+    "DESIGN_NAME": "femto",
+    "VERILOG_FILES": "dir::src/*.v",
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": 25.0,
+    "DESIGN_IS_CORE": true,
+    "PL_RESIZER_HOLD_FIX": 1,
+    "PL_RESIZER_TIMING_OPTIMIZATIONS": 1,
+    "CTS_HOLD_FIX": 1,
+    "FP_PDN_VOFFSET": 20,
+    "FP_PDN_HOFFSET": 20,
+    "FP_TAPCELL_DIST": 13
+}
