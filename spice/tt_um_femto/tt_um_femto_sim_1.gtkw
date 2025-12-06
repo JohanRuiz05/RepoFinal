@@ -1,0 +1,95 @@
+[*]
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Fri Nov 21 20:05:47 2025
+[*]
+[dumpfile] "/home/sebastian/VLSI/tinytapeout/tinytapeout/tt_um_femto_TB.vcd"
+[dumpfile_mtime] "Fri Nov 21 19:53:00 2025"
+[dumpfile_size] 58437218
+[savefile] "/home/sebastian/VLSI/tinytapeout/tinytapeout/tt_um_femto_sim_1.gtkw"
+[timestart] 63900000
+[size] 1854 1001
+[pos] -27 -24
+*-24.000000 118895000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tt_um_femto_TB.
+[treeopen] tt_um_femto_TB.uut.
+[treeopen] tt_um_femto_TB.uut.per_uart.
+[sst_width] 278
+[signals_width] 243
+[sst_expanded] 1
+[sst_vpaned_height] 562
+@400000068
+tt_um_femto_TB.uut.clk
+@28
+tt_um_femto_TB.uut.rst_n
+tt_um_femto_TB.uut.CPU.mem_rstrb
+@200
+-
+@28
+[color] 2
+tt_um_femto_TB.uut.spi_clk
+[color] 2
+tt_um_femto_TB.uut.spi_cs_n
+[color] 2
+tt_um_femto_TB.uut.spi_miso
+[color] 2
+tt_um_femto_TB.uut.spi_mosi
+@200
+-
+@22
+tt_um_femto_TB.uut.CPU.PC[23:0]
+@200
+-
+@28
+tt_um_femto_TB.uut.mapped_spi_flash.rbusy
+tt_um_femto_TB.uut.per_uart.uart0.rx_busy
+tt_um_femto_TB.uut.per_uart.tx_busy
+tt_um_femto_TB.uut.per_uart.uart0.tx_wr
+tt_um_femto_TB.uut.per_uart.uart0.rx_ack
+tt_um_femto_TB.uut.per_uart.rx_avail
+@200
+-
+@28
+tt_um_femto_TB.uut.TXD
+tt_um_femto_TB.uut.RXD
+@200
+-
+@22
+tt_um_femto_TB.uut.per_uart.uart0.rx_data[7:0]
+tt_um_femto_TB.uut.per_uart.d_in_uart[7:0]
+tt_um_femto_TB.uut.per_uart.uart0.rxd_reg[9:0]
+@200
+-
+@28
+tt_um_femto_TB.uut.CPU.mem_rstrb
+tt_um_femto_TB.uut.CPU.writeBack
+@200
+-
+@22
+tt_um_femto_TB.uut.RAM_rdata[31:0]
+@200
+-
+@28
+[color] 3
+tt_um_femto_TB.uut.spi_clk_ram
+[color] 3
+tt_um_femto_TB.uut.spi_cs_n_ram
+@29
+[color] 3
+tt_um_femto_TB.uut.spi_miso_ram
+@28
+[color] 3
+tt_um_femto_TB.uut.spi_mosi_ram
+@200
+-
+@28
+tt_um_femto_TB.uut.mapped_spi_ram.rbusy
+tt_um_femto_TB.uut.rd
+tt_um_femto_TB.uut.wr
+@200
+-
+@28
+tt_um_femto_TB.uut.mapped_spi_flash.CLK
++{tt_um_femto_TB.uut.mapped_spi_ram.CS_N} tt_um_femto_TB.uut.mapped_spi_ram.CS_N
+tt_um_femto_TB.uut.mapped_spi_flash.CS_N
+[pattern_trace] 1
+[pattern_trace] 0

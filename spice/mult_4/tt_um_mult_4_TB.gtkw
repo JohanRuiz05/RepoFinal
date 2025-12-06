@@ -1,0 +1,53 @@
+[*]
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Mon Dec  1 16:55:45 2025
+[*]
+[dumpfile] "/home/sebastian/VLSI/femtoRV/spice/mult_4_2/tt_um_mult_4_TB.vcd"
+[dumpfile_mtime] "Mon Dec  1 16:55:40 2025"
+[dumpfile_size] 6837
+[savefile] "/home/sebastian/VLSI/femtoRV/spice/mult_4_2/tt_um_mult_4_TB.gtkw"
+[timestart] 0
+[size] 1854 1001
+[pos] -27 -24
+*-17.173481 455700 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tt_um_mult_4_TB.
+[treeopen] tt_um_mult_4_TB.MUT.
+[sst_width] 278
+[signals_width] 197
+[sst_expanded] 1
+[sst_vpaned_height] 297
+@28
+tt_um_mult_4_TB.MUT.mult_4.clk
+tt_um_mult_4_TB.MUT.mult_4.init
+@200
+-
+@28
+tt_um_mult_4_TB.MUT.mult_4.rst
+@200
+-
+@800028
+tt_um_mult_4_TB.A[3:0]
+@28
+(0)tt_um_mult_4_TB.A[3:0]
+(1)tt_um_mult_4_TB.A[3:0]
+(2)tt_um_mult_4_TB.A[3:0]
+(3)tt_um_mult_4_TB.A[3:0]
+@200
+-
+@1001200
+-group_end
+@800028
+tt_um_mult_4_TB.B[3:0]
+@28
+(0)tt_um_mult_4_TB.B[3:0]
+(1)tt_um_mult_4_TB.B[3:0]
+(2)tt_um_mult_4_TB.B[3:0]
+(3)tt_um_mult_4_TB.B[3:0]
+@1001200
+-group_end
+@200
+-
+@23
+tt_um_mult_4_TB.MUT.mult_4.pp[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
