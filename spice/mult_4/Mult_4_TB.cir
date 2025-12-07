@@ -26,9 +26,6 @@ VA1 A[1]   0 dc 3.3
 VA2 A[2]   0 dc 0 
 VA3 A[3]   0 dc 3.3 
 VA4 A[4]   0 dc 0 
-VA5 A[5]   0 dc 0 
-VA6 A[6]   0 dc 0 
-VA7 A[7]   0 dc 0 
 
 VB0 B[0]   0 dc 0 
 VB1 B[1]   0 dc 3.3 
