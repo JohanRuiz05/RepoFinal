@@ -1,0 +1,800 @@
+
+Magic 8.3 revision 413 - Compiled on Wed Jul 12 10:04:40 UTC 2023.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Using technology "sky130A", version 1.0.493-0-g0fe599b
+Reading LEF data from file /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef.
+This action cannot be undone.
+LEF read, Line 82 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 83 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read, Line 116 (Message): Unknown keyword "MINENCLOSEDAREA" in LEF file; ignoring.
+LEF read, Line 118 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 119 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read, Line 125 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 126 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 127 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 160 (Message): Unknown keyword "MINENCLOSEDAREA" in LEF file; ignoring.
+LEF read, Line 168 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 169 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read, Line 171 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 172 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 173 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 210 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 211 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read, Line 213 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 214 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 215 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 252 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 253 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read, Line 255 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 256 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 257 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 294 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 295 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read: Processed 801 lines.
+Reading DEF data from file /openlane/designs/femto/runs/full_guide/results/routing/femto.def.
+This action cannot be undone.
+  Processed 4 vias total.
+Cell sky130_fd_sc_hd__diode_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__decap_3 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_ef_sc_hd__decap_12 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__decap_8 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__fill_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__fill_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__decap_6 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__decap_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__tapvpwrvgnd_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__clkbuf_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__inv_6 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__buf_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or4_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nor4b_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or4_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__inv_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nand3b_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or2_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a21o_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a21oi_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or2_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__buf_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o21a_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__and2_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nor2_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nand2_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__mux2_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__mux2_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__and2_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__mux2_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a211oi_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a211o_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a211o_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a211oi_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a31o_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a21o_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__xor2_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nor2_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o2111a_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or2_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__and2_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nor2_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__and2b_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a22o_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o21ai_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o2bb2a_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o311a_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o211a_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o21ai_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o2111ai_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__clkbuf_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a21oi_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o2111ai_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o21ba_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nand2b_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a2111o_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a21oi_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o31a_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nand2_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or2b_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a21bo_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or4b_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__and4_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__and3_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__xnor2_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nor2_8 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__clkinv_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a32o_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o41a_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or3b_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__inv_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nand3_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__xnor2_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or3_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or3_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__xor2_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a311o_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a311oi_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o41a_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o31ai_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o311a_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a221o_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__and3b_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o211a_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o221a_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o221a_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__and4bb_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__buf_6 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nand2_8 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__xor2_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__xnor2_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a22oi_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nor4_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__and4b_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__and4b_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a31o_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nor3_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a21boi_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nor3b_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__clkbuf_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a2bb2o_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a221o_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a22o_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nand2_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o22ai_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a221o_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a211o_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__clkbuf_8 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a22oi_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o31a_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or3b_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nand3b_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a21boi_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o22ai_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a22o_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a21boi_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a2111oi_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o22a_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or4b_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o32a_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a311o_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a21o_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a2111o_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__buf_8 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__and3_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__and3b_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or3_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nor2b_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o211ai_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a211oi_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o21bai_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nand3_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or4_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o211ai_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o31ai_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or4bb_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a311oi_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o221ai_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__buf_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__o21a_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a31o_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__or4bb_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__and4bb_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nand2b_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nor3_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a31oi_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__a221oi_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__nand4_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__dfxtp_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__dfxtp_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__dlxtn_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__dlxtn_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__dfxtp_4 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__conb_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__clkbuf_16 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__dlygate4sd3_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__dlymetal6s2s_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__clkdlybuf4s25_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__dlygate4sd1_1 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+Cell sky130_fd_sc_hd__clkdlybuf4s15_2 read from path /home/sebastian/.ciel/sky130A/libs.ref/sky130_fd_sc_hd/maglef
+  Processed 26351 subcell instances total.
+  Processed 15 pins total.
+  Processed 2 special nets total.
+  Processed 12191 nets total.
+DEF read: Processed 226814 lines.
+Moving label "CPU.Bimm\[9\]" from metal2 to via2 in cell femto.
+Moving label "CPU.aluIn1\[23\]" from metal2 to via2 in cell femto.
+Moving label "CPU.cycles\[17\]" from metal1 to via1 in cell femto.
+Moving label "CPU.cycles\[18\]" from metal1 to via1 in cell femto.
+Moving label "CPU.cycles\[2\]" from metal1 to via1 in cell femto.
+Moving label "CPU.mem_wdata\[0\]" from metal3 to via3 in cell femto.
+Moving label "CPU.mem_wdata\[1\]" from metal2 to via2 in cell femto.
+Moving label "CPU.registerFile\[0\]\[23\]" from metal1 to viali in cell femto.
+Moving label "CPU.registerFile\[12\]\[3\]" from metal1 to viali in cell femto.
+Moving label "CPU.registerFile\[14\]\[12\]" from metal1 to via1 in cell femto.
+Moving label "CPU.registerFile\[19\]\[17\]" from metal1 to via1 in cell femto.
+Moving label "CPU.registerFile\[19\]\[1\]" from metal1 to via1 in cell femto.
+Moving label "CPU.registerFile\[23\]\[30\]" from metal1 to via1 in cell femto.
+Moving label "CPU.registerFile\[7\]\[20\]" from metal2 to via1 in cell femto.
+Moving label "CPU.registerFile\[8\]\[2\]" from metal1 to viali in cell femto.
+Moving label "CPU.rs2\[20\]" from metal2 to via2 in cell femto.
+Moving label "_00019_" from metal1 to via1 in cell femto.
+Moving label "_00025_" from metal1 to viali in cell femto.
+Moving label "_00028_" from metal1 to via1 in cell femto.
+Moving label "_00045_" from metal1 to via1 in cell femto.
+Moving label "_01298_" from metal1 to viali in cell femto.
+Moving label "_01305_" from metal1 to via1 in cell femto.
+Moving label "_01314_" from metal1 to viali in cell femto.
+Moving label "_01320_" from metal1 to via1 in cell femto.
+Moving label "_01330_" from metal1 to via1 in cell femto.
+Moving label "_01331_" from metal1 to via1 in cell femto.
+Moving label "_01332_" from metal1 to via1 in cell femto.
+Moving label "_01341_" from metal1 to via1 in cell femto.
+Moving label "_01343_" from metal1 to via1 in cell femto.
+Moving label "_01349_" from metal1 to via1 in cell femto.
+Moving label "_01354_" from metal1 to via1 in cell femto.
+Moving label "_01367_" from metal1 to via1 in cell femto.
+Moving label "_01374_" from metal1 to via1 in cell femto.
+Moving label "_01379_" from metal1 to via1 in cell femto.
+Moving label "_01389_" from metal1 to via1 in cell femto.
+Moving label "_01395_" from metal1 to via1 in cell femto.
+Moving label "_01423_" from metal1 to via1 in cell femto.
+Moving label "_01425_" from metal1 to via1 in cell femto.
+Moving label "_01437_" from metal1 to via1 in cell femto.
+Moving label "_01463_" from metal1 to via1 in cell femto.
+Moving label "_01487_" from metal1 to via1 in cell femto.
+Moving label "_01519_" from metal1 to via1 in cell femto.
+Moving label "_01526_" from metal1 to via1 in cell femto.
+Moving label "_01541_" from metal1 to via1 in cell femto.
+Moving label "_01542_" from metal1 to via1 in cell femto.
+Moving label "_01544_" from metal1 to via1 in cell femto.
+Moving label "_01554_" from metal1 to via1 in cell femto.
+Moving label "_01561_" from metal1 to via1 in cell femto.
+Moving label "_01582_" from metal1 to via1 in cell femto.
+Moving label "_01583_" from metal1 to via1 in cell femto.
+Moving label "_01602_" from metal1 to viali in cell femto.
+Moving label "_01608_" from metal1 to via1 in cell femto.
+Moving label "_01628_" from metal1 to via1 in cell femto.
+Moving label "_01639_" from metal1 to via1 in cell femto.
+Moving label "_01665_" from metal1 to via1 in cell femto.
+Moving label "_01667_" from metal1 to viali in cell femto.
+Moving label "_01668_" from metal1 to via1 in cell femto.
+Moving label "_01679_" from metal1 to via1 in cell femto.
+Moving label "_01692_" from metal1 to via1 in cell femto.
+Moving label "_01695_" from metal1 to via1 in cell femto.
+Moving label "_01707_" from metal1 to via1 in cell femto.
+Moving label "_01719_" from metal1 to via1 in cell femto.
+Moving label "_01743_" from metal1 to via1 in cell femto.
+Moving label "_01747_" from metal1 to via1 in cell femto.
+Moving label "_01757_" from metal1 to via1 in cell femto.
+Moving label "_01770_" from metal1 to via1 in cell femto.
+Moving label "_01783_" from metal1 to via1 in cell femto.
+Moving label "_01814_" from metal1 to via1 in cell femto.
+Moving label "_01863_" from metal1 to via1 in cell femto.
+Moving label "_01876_" from metal1 to via1 in cell femto.
+Moving label "_01882_" from metal1 to via1 in cell femto.
+Moving label "_01887_" from metal1 to via1 in cell femto.
+Moving label "_01903_" from metal1 to via1 in cell femto.
+Moving label "_01905_" from metal1 to via1 in cell femto.
+Moving label "_01938_" from metal1 to via1 in cell femto.
+Moving label "_01939_" from metal1 to via1 in cell femto.
+Moving label "_01948_" from metal1 to via1 in cell femto.
+Moving label "_01956_" from metal1 to via1 in cell femto.
+Moving label "_01958_" from metal1 to via1 in cell femto.
+Moving label "_01962_" from metal1 to via1 in cell femto.
+Moving label "_01971_" from metal1 to via1 in cell femto.
+Moving label "_01977_" from metal1 to via1 in cell femto.
+Moving label "_02012_" from metal1 to via1 in cell femto.
+Moving label "_02013_" from metal1 to via1 in cell femto.
+Moving label "_02018_" from metal1 to via1 in cell femto.
+Moving label "_02022_" from metal1 to via1 in cell femto.
+Moving label "_02023_" from metal1 to via1 in cell femto.
+Moving label "_02025_" from metal1 to via1 in cell femto.
+Moving label "_02026_" from metal1 to via1 in cell femto.
+Moving label "_02028_" from metal1 to via1 in cell femto.
+Moving label "_02044_" from metal1 to via1 in cell femto.
+Moving label "_02066_" from metal1 to via1 in cell femto.
+Moving label "_02082_" from metal1 to via1 in cell femto.
+Moving label "_02127_" from metal1 to via1 in cell femto.
+Moving label "_02128_" from metal1 to via1 in cell femto.
+Moving label "_02132_" from metal1 to via1 in cell femto.
+Moving label "_02140_" from metal1 to via1 in cell femto.
+Moving label "_02159_" from metal1 to viali in cell femto.
+Moving label "_02160_" from metal1 to viali in cell femto.
+Moving label "_02166_" from metal1 to via1 in cell femto.
+Moving label "_02181_" from metal1 to via1 in cell femto.
+Moving label "_02187_" from metal1 to via1 in cell femto.
+Moving label "_02192_" from metal1 to via1 in cell femto.
+Moving label "_02201_" from metal1 to viali in cell femto.
+Moving label "_02206_" from metal1 to via1 in cell femto.
+Moving label "_02212_" from metal1 to via1 in cell femto.
+Moving label "_02215_" from metal1 to via1 in cell femto.
+Moving label "_02237_" from metal1 to via1 in cell femto.
+Moving label "_02246_" from metal1 to via1 in cell femto.
+Moving label "_02255_" from metal1 to via1 in cell femto.
+Moving label "_02266_" from metal1 to via1 in cell femto.
+Moving label "_02268_" from metal1 to viali in cell femto.
+Moving label "_02277_" from metal1 to via1 in cell femto.
+Moving label "_02296_" from metal1 to via1 in cell femto.
+Moving label "_02299_" from metal1 to via1 in cell femto.
+Moving label "_02300_" from metal1 to via1 in cell femto.
+Moving label "_02335_" from metal1 to via1 in cell femto.
+Moving label "_02344_" from metal1 to via1 in cell femto.
+Moving label "_02347_" from metal1 to via1 in cell femto.
+Moving label "_02348_" from metal1 to via1 in cell femto.
+Moving label "_02350_" from metal1 to via1 in cell femto.
+Moving label "_02354_" from metal1 to via1 in cell femto.
+Moving label "_02363_" from metal1 to via1 in cell femto.
+Moving label "_02365_" from metal1 to via1 in cell femto.
+Moving label "_02371_" from metal1 to via1 in cell femto.
+Moving label "_02373_" from metal1 to via1 in cell femto.
+Moving label "_02377_" from metal1 to via1 in cell femto.
+Moving label "_02384_" from metal1 to via1 in cell femto.
+Moving label "_02396_" from metal1 to via1 in cell femto.
+Moving label "_02404_" from metal1 to via1 in cell femto.
+Moving label "_02421_" from metal1 to via1 in cell femto.
+Moving label "_02429_" from metal1 to via1 in cell femto.
+Moving label "_02434_" from metal1 to via1 in cell femto.
+Moving label "_02437_" from metal1 to viali in cell femto.
+Moving label "_02438_" from metal1 to via1 in cell femto.
+Moving label "_02447_" from metal1 to via1 in cell femto.
+Moving label "_02449_" from metal1 to via1 in cell femto.
+Moving label "_02467_" from metal1 to via1 in cell femto.
+Moving label "_02468_" from metal1 to via1 in cell femto.
+Moving label "_02472_" from metal1 to via1 in cell femto.
+Moving label "_02474_" from metal1 to via1 in cell femto.
+Moving label "_02484_" from metal1 to via1 in cell femto.
+Moving label "_02485_" from metal1 to viali in cell femto.
+Moving label "_02488_" from metal1 to via1 in cell femto.
+Moving label "_02490_" from metal1 to via1 in cell femto.
+Moving label "_02494_" from metal1 to via1 in cell femto.
+Moving label "_02502_" from metal1 to via1 in cell femto.
+Moving label "_02523_" from metal1 to via1 in cell femto.
+Moving label "_02556_" from metal1 to via1 in cell femto.
+Moving label "_02562_" from metal1 to via1 in cell femto.
+Moving label "_02565_" from metal1 to via1 in cell femto.
+Moving label "_02571_" from metal1 to via1 in cell femto.
+Moving label "_02574_" from metal1 to via1 in cell femto.
+Moving label "_02576_" from metal1 to viali in cell femto.
+Moving label "_02592_" from metal1 to via1 in cell femto.
+Moving label "_02595_" from metal1 to via1 in cell femto.
+Moving label "_02610_" from metal1 to via1 in cell femto.
+Moving label "_02612_" from metal1 to via1 in cell femto.
+Moving label "_02613_" from metal1 to via1 in cell femto.
+Moving label "_02641_" from metal1 to via1 in cell femto.
+Moving label "_02646_" from metal1 to via1 in cell femto.
+Moving label "_02704_" from metal1 to via1 in cell femto.
+Moving label "_02705_" from metal1 to via1 in cell femto.
+Moving label "_02762_" from metal1 to via1 in cell femto.
+Moving label "_02775_" from metal3 to via3 in cell femto.
+Moving label "_02783_" from metal2 to via2 in cell femto.
+Moving label "_02790_" from metal2 to via1 in cell femto.
+Moving label "_02845_" from metal1 to viali in cell femto.
+Moving label "_02872_" from metal1 to viali in cell femto.
+Moving label "_02877_" from metal3 to via3 in cell femto.
+Moving label "_02894_" from metal3 to via3 in cell femto.
+Moving label "_02929_" from metal1 to viali in cell femto.
+Moving label "_02931_" from metal2 to via2 in cell femto.
+Moving label "_02942_" from metal2 to via2 in cell femto.
+Moving label "_02969_" from metal1 to viali in cell femto.
+Moving label "_02991_" from metal3 to via3 in cell femto.
+Moving label "_02999_" from metal1 to viali in cell femto.
+Moving label "_03007_" from metal1 to viali in cell femto.
+Moving label "_03029_" from metal1 to viali in cell femto.
+Moving label "_03088_" from metal1 to viali in cell femto.
+Moving label "_03091_" from metal2 to via2 in cell femto.
+Moving label "_03114_" from metal3 to via3 in cell femto.
+Moving label "_03172_" from metal2 to via2 in cell femto.
+Moving label "_03177_" from metal3 to via3 in cell femto.
+Moving label "_03194_" from metal1 to viali in cell femto.
+Moving label "_03201_" from metal1 to via1 in cell femto.
+Moving label "_03202_" from metal2 to via1 in cell femto.
+Moving label "_03218_" from metal2 to via1 in cell femto.
+Moving label "_03236_" from metal2 to via1 in cell femto.
+Moving label "_03251_" from metal1 to viali in cell femto.
+Moving label "_03261_" from metal2 to via2 in cell femto.
+Moving label "_03266_" from metal1 to viali in cell femto.
+Moving label "_03278_" from metal1 to viali in cell femto.
+Moving label "_03279_" from metal1 to via1 in cell femto.
+Moving label "_03440_" from metal2 to via2 in cell femto.
+Moving label "_03516_" from metal1 to viali in cell femto.
+Moving label "_03586_" from metal2 to via2 in cell femto.
+Moving label "_03595_" from metal1 to viali in cell femto.
+Moving label "_03603_" from metal1 to viali in cell femto.
+Moving label "_03636_" from metal2 to via2 in cell femto.
+Moving label "_03637_" from metal2 to via2 in cell femto.
+Moving label "_03640_" from metal2 to via2 in cell femto.
+Moving label "_03650_" from metal2 to via2 in cell femto.
+Moving label "_03678_" from metal2 to via2 in cell femto.
+Moving label "_03682_" from metal2 to via2 in cell femto.
+Moving label "_03685_" from metal2 to via2 in cell femto.
+Moving label "_03686_" from metal2 to via2 in cell femto.
+Moving label "_03713_" from metal2 to via2 in cell femto.
+Moving label "_03725_" from metal2 to via2 in cell femto.
+Moving label "_03731_" from metal1 to viali in cell femto.
+Moving label "_03742_" from metal2 to via2 in cell femto.
+Moving label "_03777_" from metal1 to viali in cell femto.
+Moving label "_03795_" from metal2 to via2 in cell femto.
+Moving label "_03801_" from metal1 to viali in cell femto.
+Moving label "_03821_" from metal1 to viali in cell femto.
+Moving label "_03832_" from metal3 to via3 in cell femto.
+Moving label "_03833_" from metal2 to via2 in cell femto.
+Moving label "_03896_" from metal2 to via2 in cell femto.
+Moving label "_03973_" from metal1 to viali in cell femto.
+Moving label "_04007_" from metal3 to via3 in cell femto.
+Moving label "_04050_" from metal3 to via3 in cell femto.
+Moving label "_04113_" from metal2 to via2 in cell femto.
+Moving label "_04152_" from metal2 to via2 in cell femto.
+Moving label "_04164_" from metal1 to viali in cell femto.
+Moving label "_04166_" from metal1 to viali in cell femto.
+Moving label "_04238_" from metal3 to via2 in cell femto.
+Moving label "_04272_" from metal1 to viali in cell femto.
+Moving label "_04309_" from metal1 to viali in cell femto.
+Moving label "_04340_" from metal2 to via2 in cell femto.
+Moving label "_04360_" from metal2 to via2 in cell femto.
+Moving label "_04408_" from metal1 to viali in cell femto.
+Moving label "_04524_" from metal2 to via2 in cell femto.
+Moving label "_04547_" from metal1 to viali in cell femto.
+Moving label "_04564_" from metal3 to via3 in cell femto.
+Moving label "_04601_" from metal1 to viali in cell femto.
+Moving label "_04680_" from metal2 to via2 in cell femto.
+Moving label "_04713_" from metal2 to via2 in cell femto.
+Moving label "_04792_" from metal2 to via2 in cell femto.
+Moving label "_04804_" from metal1 to viali in cell femto.
+Moving label "_04852_" from metal2 to via1 in cell femto.
+Moving label "_04880_" from metal1 to viali in cell femto.
+Moving label "_04943_" from metal4 to via4 in cell femto.
+Moving label "_04964_" from metal1 to viali in cell femto.
+Moving label "_04981_" from metal2 to via2 in cell femto.
+Moving label "_04985_" from metal3 to via3 in cell femto.
+Moving label "_05014_" from metal3 to via3 in cell femto.
+Moving label "_05033_" from metal1 to viali in cell femto.
+Moving label "_05106_" from metal1 to via1 in cell femto.
+Moving label "_05134_" from metal1 to via1 in cell femto.
+Moving label "_05138_" from metal1 to via1 in cell femto.
+Moving label "_05154_" from metal1 to viali in cell femto.
+Moving label "_05155_" from metal1 to via1 in cell femto.
+Moving label "_05168_" from metal1 to via1 in cell femto.
+Moving label "_05203_" from metal1 to via1 in cell femto.
+Moving label "_05240_" from metal3 to via3 in cell femto.
+Moving label "_05292_" from metal1 to via1 in cell femto.
+Moving label "_05353_" from metal1 to viali in cell femto.
+Moving label "_05361_" from metal2 to via2 in cell femto.
+Moving label "_05364_" from metal1 to viali in cell femto.
+Moving label "_05370_" from metal1 to viali in cell femto.
+Moving label "_05424_" from metal2 to via2 in cell femto.
+Moving label "_05532_" from metal1 to via1 in cell femto.
+Moving label "_05561_" from metal2 to via2 in cell femto.
+Moving label "_05623_" from metal2 to via1 in cell femto.
+Moving label "_05631_" from metal1 to viali in cell femto.
+Moving label "_05667_" from metal2 to via2 in cell femto.
+Moving label "_05693_" from metal2 to via2 in cell femto.
+Moving label "_05698_" from metal2 to via2 in cell femto.
+Moving label "_05769_" from metal1 to via1 in cell femto.
+Moving label "_05770_" from metal1 to viali in cell femto.
+Moving label "_05783_" from metal2 to via2 in cell femto.
+Moving label "_05793_" from metal1 to viali in cell femto.
+Moving label "_05801_" from metal1 to via1 in cell femto.
+Moving label "_05815_" from metal1 to via1 in cell femto.
+Moving label "_05823_" from metal1 to viali in cell femto.
+Moving label "_05857_" from metal1 to via1 in cell femto.
+Moving label "_05870_" from metal3 to via3 in cell femto.
+Moving label "_05938_" from metal2 to via2 in cell femto.
+Moving label "_06094_" from metal1 to viali in cell femto.
+Moving label "_06114_" from metal1 to viali in cell femto.
+Moving label "_06132_" from metal1 to via1 in cell femto.
+Moving label "_06168_" from metal2 to via2 in cell femto.
+Moving label "_06194_" from metal3 to via3 in cell femto.
+Moving label "_06256_" from metal1 to viali in cell femto.
+Moving label "_06266_" from metal2 to via2 in cell femto.
+Moving label "_06271_" from metal2 to via2 in cell femto.
+Moving label "_06302_" from metal1 to viali in cell femto.
+Moving label "_06360_" from metal2 to via2 in cell femto.
+Moving label "_06407_" from metal1 to via1 in cell femto.
+Moving label "_06418_" from metal2 to via2 in cell femto.
+Moving label "_06447_" from metal1 to viali in cell femto.
+Moving label "_06449_" from metal3 to via3 in cell femto.
+Moving label "_06473_" from metal2 to via1 in cell femto.
+Moving label "_06500_" from metal1 to viali in cell femto.
+Moving label "_06532_" from metal2 to via2 in cell femto.
+Moving label "_06533_" from metal2 to via2 in cell femto.
+Moving label "_06542_" from metal1 to viali in cell femto.
+Moving label "_06553_" from metal3 to via3 in cell femto.
+Moving label "_06632_" from metal2 to via1 in cell femto.
+Moving label "_07020_" from metal1 to viali in cell femto.
+Moving label "_07118_" from metal1 to via1 in cell femto.
+Moving label "_07121_" from metal2 to via1 in cell femto.
+Moving label "_07155_" from metal2 to via1 in cell femto.
+Moving label "_07163_" from metal2 to via2 in cell femto.
+Moving label "_07167_" from metal1 to viali in cell femto.
+Moving label "_07257_" from metal1 to via1 in cell femto.
+Moving label "_07311_" from metal2 to via2 in cell femto.
+Moving label "_07364_" from metal1 to via1 in cell femto.
+Moving label "_07374_" from metal1 to via1 in cell femto.
+Moving label "_07539_" from metal1 to viali in cell femto.
+Moving label "_07684_" from metal1 to viali in cell femto.
+Moving label "_07698_" from metal2 to via2 in cell femto.
+Moving label "_07749_" from metal1 to viali in cell femto.
+Moving label "_07759_" from metal2 to via1 in cell femto.
+Moving label "_07813_" from metal1 to viali in cell femto.
+Moving label "_07964_" from metal1 to viali in cell femto.
+Moving label "_07996_" from metal2 to via2 in cell femto.
+Moving label "_08271_" from metal1 to via1 in cell femto.
+Moving label "_08291_" from metal1 to viali in cell femto.
+Moving label "_08396_" from metal2 to via2 in cell femto.
+Moving label "_08434_" from metal2 to via2 in cell femto.
+Moving label "_08444_" from metal2 to via2 in cell femto.
+Moving label "_08445_" from metal2 to via2 in cell femto.
+Moving label "_08455_" from metal2 to via1 in cell femto.
+Moving label "_08479_" from metal3 to via3 in cell femto.
+Moving label "_08499_" from metal2 to via1 in cell femto.
+Moving label "_08504_" from metal2 to via2 in cell femto.
+Moving label "_08507_" from metal2 to via2 in cell femto.
+Moving label "_08593_" from metal1 to viali in cell femto.
+Moving label "_08602_" from metal3 to via3 in cell femto.
+Moving label "_08632_" from metal1 to viali in cell femto.
+Moving label "_08681_" from metal2 to via1 in cell femto.
+Moving label "_08692_" from metal1 to viali in cell femto.
+Moving label "_08697_" from metal1 to viali in cell femto.
+Moving label "_08756_" from metal2 to via1 in cell femto.
+Moving label "_08798_" from metal3 to via3 in cell femto.
+Moving label "clknet_0__03644_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__03647_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__03648_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__03650_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__03652_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__03656_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__03682_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__05014_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08361_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08367_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08436_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08437_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08444_" from metal3 to via3 in cell femto.
+Moving label "clknet_0__08446_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08447_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08448_" from metal3 to via3 in cell femto.
+Moving label "clknet_0__08451_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08455_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08457_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08462_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08466_" from metal3 to via3 in cell femto.
+Moving label "clknet_0__08472_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08478_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08480_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08489_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08490_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08499_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08504_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08508_" from metal2 to via2 in cell femto.
+Moving label "clknet_0__08509_" from metal2 to via2 in cell femto.
+Moving label "clknet_0_clk" from metal3 to via3 in cell femto.
+Moving label "clknet_1_0__leaf__03684_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_0__leaf__03690_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_0__leaf__04980_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_0__leaf__05015_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_0__leaf__08434_" from metal3 to via3 in cell femto.
+Moving label "clknet_1_0__leaf__08440_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_0__leaf__08445_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_0__leaf__08484_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_0__leaf__08486_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_0__leaf__08490_" from metal3 to via3 in cell femto.
+Moving label "clknet_1_0__leaf__08493_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_0__leaf__08511_" from metal3 to via3 in cell femto.
+Moving label "clknet_1_1__leaf__03641_" from metal1 to via1 in cell femto.
+Moving label "clknet_1_1__leaf__03684_" from metal2 to via1 in cell femto.
+Moving label "clknet_1_1__leaf__03688_" from metal3 to via3 in cell femto.
+Moving label "clknet_1_1__leaf__03691_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_1__leaf__04981_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_1__leaf__04984_" from metal2 to via1 in cell femto.
+Moving label "clknet_1_1__leaf__04985_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_1__leaf__08369_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_1__leaf__08370_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_1__leaf__08455_" from metal1 to viali in cell femto.
+Moving label "clknet_1_1__leaf__08462_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_1__leaf__08475_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_1__leaf__08495_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_1__leaf__08505_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_1__leaf__08509_" from metal2 to via2 in cell femto.
+Moving label "clknet_1_1__leaf__08511_" from metal2 to via2 in cell femto.
+Moving label "mapped_spi_flash.cmd_addr\[10\]" from metal1 to via1 in cell femto.
+Moving label "mapped_spi_ram.cmd_addr\[5\]" from metal1 to viali in cell femto.
+Moving label "net1431" from metal1 to viali in cell femto.
+Moving label "net1439" from metal1 to viali in cell femto.
+Moving label "net1456" from metal1 to via1 in cell femto.
+Moving label "net1458" from metal2 to via1 in cell femto.
+Moving label "net1485" from metal2 to via2 in cell femto.
+Moving label "net1506" from metal1 to via1 in cell femto.
+Moving label "net1608" from metal1 to viali in cell femto.
+Moving label "net1680" from metal1 to via1 in cell femto.
+Moving label "net1869" from metal2 to via2 in cell femto.
+Moving label "net1932" from metal1 to viali in cell femto.
+Moving label "net1998" from metal2 to via1 in cell femto.
+Moving label "net2" from metal2 to via2 in cell femto.
+Moving label "net2092" from metal1 to viali in cell femto.
+Moving label "net2115" from metal2 to via2 in cell femto.
+Moving label "net2257" from metal1 to viali in cell femto.
+Moving label "net2318" from metal1 to viali in cell femto.
+Moving label "net2589" from metal1 to viali in cell femto.
+Moving label "net309" from metal1 to viali in cell femto.
+Moving label "net34" from metal1 to via1 in cell femto.
+Moving label "net42" from metal1 to via1 in cell femto.
+Moving label "net463" from metal1 to viali in cell femto.
+Moving label "net5" from metal2 to via2 in cell femto.
+Moving label "net50" from metal1 to via1 in cell femto.
+Moving label "net56" from metal1 to via1 in cell femto.
+Moving label "net662" from metal2 to via2 in cell femto.
+Moving label "net739" from metal1 to via1 in cell femto.
+Moving label "net888" from metal2 to via1 in cell femto.
+Moving label "per_uart.tx_busy" from metal3 to via3 in cell femto.
+Moving label "spi_mosi_ram" from metal2 to via2 in cell femto.
+Processing femto
+Extracting sky130_fd_sc_hd__decap_8 into sky130_fd_sc_hd__decap_8.ext:
+Extracting sky130_ef_sc_hd__decap_12 into sky130_ef_sc_hd__decap_12.ext:
+Extracting sky130_fd_sc_hd__decap_3 into sky130_fd_sc_hd__decap_3.ext:
+Extracting sky130_fd_sc_hd__buf_2 into sky130_fd_sc_hd__buf_2.ext:
+Extracting sky130_fd_sc_hd__fill_1 into sky130_fd_sc_hd__fill_1.ext:
+Extracting sky130_fd_sc_hd__tapvpwrvgnd_1 into sky130_fd_sc_hd__tapvpwrvgnd_1.ext:
+Extracting sky130_fd_sc_hd__decap_4 into sky130_fd_sc_hd__decap_4.ext:
+Extracting sky130_fd_sc_hd__decap_6 into sky130_fd_sc_hd__decap_6.ext:
+Extracting sky130_fd_sc_hd__clkbuf_2 into sky130_fd_sc_hd__clkbuf_2.ext:
+Extracting sky130_fd_sc_hd__fill_2 into sky130_fd_sc_hd__fill_2.ext:
+Extracting sky130_fd_sc_hd__dfxtp_1 into sky130_fd_sc_hd__dfxtp_1.ext:
+Extracting sky130_fd_sc_hd__mux2_1 into sky130_fd_sc_hd__mux2_1.ext:
+Extracting sky130_fd_sc_hd__inv_2 into sky130_fd_sc_hd__inv_2.ext:
+Extracting sky130_fd_sc_hd__dlygate4sd3_1 into sky130_fd_sc_hd__dlygate4sd3_1.ext:
+Extracting sky130_fd_sc_hd__clkbuf_1 into sky130_fd_sc_hd__clkbuf_1.ext:
+Extracting sky130_fd_sc_hd__clkbuf_16 into sky130_fd_sc_hd__clkbuf_16.ext:
+Extracting sky130_fd_sc_hd__clkbuf_4 into sky130_fd_sc_hd__clkbuf_4.ext:
+Extracting sky130_fd_sc_hd__diode_2 into sky130_fd_sc_hd__diode_2.ext:
+Extracting sky130_fd_sc_hd__buf_4 into sky130_fd_sc_hd__buf_4.ext:
+Extracting sky130_fd_sc_hd__or2_1 into sky130_fd_sc_hd__or2_1.ext:
+Extracting sky130_fd_sc_hd__a21o_1 into sky130_fd_sc_hd__a21o_1.ext:
+Extracting sky130_fd_sc_hd__buf_1 into sky130_fd_sc_hd__buf_1.ext:
+Extracting sky130_fd_sc_hd__o211a_1 into sky130_fd_sc_hd__o211a_1.ext:
+Extracting sky130_fd_sc_hd__a211o_1 into sky130_fd_sc_hd__a211o_1.ext:
+Extracting sky130_fd_sc_hd__a31o_2 into sky130_fd_sc_hd__a31o_2.ext:
+Extracting sky130_fd_sc_hd__a31o_4 into sky130_fd_sc_hd__a31o_4.ext:
+Extracting sky130_fd_sc_hd__and2_1 into sky130_fd_sc_hd__and2_1.ext:
+Extracting sky130_fd_sc_hd__clkbuf_8 into sky130_fd_sc_hd__clkbuf_8.ext:
+Extracting sky130_fd_sc_hd__a31o_1 into sky130_fd_sc_hd__a31o_1.ext:
+Extracting sky130_fd_sc_hd__or3_1 into sky130_fd_sc_hd__or3_1.ext:
+Extracting sky130_fd_sc_hd__nor2_1 into sky130_fd_sc_hd__nor2_1.ext:
+Extracting sky130_fd_sc_hd__o21bai_1 into sky130_fd_sc_hd__o21bai_1.ext:
+Extracting sky130_fd_sc_hd__or4_2 into sky130_fd_sc_hd__or4_2.ext:
+Extracting sky130_fd_sc_hd__conb_1 into sky130_fd_sc_hd__conb_1.ext:
+Extracting sky130_fd_sc_hd__dfxtp_4 into sky130_fd_sc_hd__dfxtp_4.ext:
+Extracting sky130_fd_sc_hd__a22o_1 into sky130_fd_sc_hd__a22o_1.ext:
+Extracting sky130_fd_sc_hd__or4_1 into sky130_fd_sc_hd__or4_1.ext:
+Extracting sky130_fd_sc_hd__or2_2 into sky130_fd_sc_hd__or2_2.ext:
+Extracting sky130_fd_sc_hd__nand2_1 into sky130_fd_sc_hd__nand2_1.ext:
+Extracting sky130_fd_sc_hd__o21a_2 into sky130_fd_sc_hd__o21a_2.ext:
+Extracting sky130_fd_sc_hd__and3_1 into sky130_fd_sc_hd__and3_1.ext:
+Extracting sky130_fd_sc_hd__and3b_1 into sky130_fd_sc_hd__and3b_1.ext:
+Extracting sky130_fd_sc_hd__or3_2 into sky130_fd_sc_hd__or3_2.ext:
+Extracting sky130_fd_sc_hd__o21ai_1 into sky130_fd_sc_hd__o21ai_1.ext:
+Extracting sky130_fd_sc_hd__nor4b_1 into sky130_fd_sc_hd__nor4b_1.ext:
+Extracting sky130_fd_sc_hd__xnor2_1 into sky130_fd_sc_hd__xnor2_1.ext:
+Extracting sky130_fd_sc_hd__o21a_1 into sky130_fd_sc_hd__o21a_1.ext:
+Extracting sky130_fd_sc_hd__buf_6 into sky130_fd_sc_hd__buf_6.ext:
+Extracting sky130_fd_sc_hd__a21boi_1 into sky130_fd_sc_hd__a21boi_1.ext:
+Extracting sky130_fd_sc_hd__a21oi_1 into sky130_fd_sc_hd__a21oi_1.ext:
+Extracting sky130_fd_sc_hd__a21bo_1 into sky130_fd_sc_hd__a21bo_1.ext:
+Extracting sky130_fd_sc_hd__or3b_1 into sky130_fd_sc_hd__or3b_1.ext:
+Extracting sky130_fd_sc_hd__nor4_1 into sky130_fd_sc_hd__nor4_1.ext:
+Extracting sky130_fd_sc_hd__o31ai_1 into sky130_fd_sc_hd__o31ai_1.ext:
+Extracting sky130_fd_sc_hd__dfxtp_2 into sky130_fd_sc_hd__dfxtp_2.ext:
+Extracting sky130_fd_sc_hd__a2bb2o_1 into sky130_fd_sc_hd__a2bb2o_1.ext:
+Extracting sky130_fd_sc_hd__nand2_4 into sky130_fd_sc_hd__nand2_4.ext:
+Extracting sky130_fd_sc_hd__o311a_1 into sky130_fd_sc_hd__o311a_1.ext:
+Extracting sky130_fd_sc_hd__o32a_1 into sky130_fd_sc_hd__o32a_1.ext:
+Extracting sky130_fd_sc_hd__a21oi_4 into sky130_fd_sc_hd__a21oi_4.ext:
+Extracting sky130_fd_sc_hd__nor3_1 into sky130_fd_sc_hd__nor3_1.ext:
+Extracting sky130_fd_sc_hd__o211a_2 into sky130_fd_sc_hd__o211a_2.ext:
+Extracting sky130_fd_sc_hd__nor2_2 into sky130_fd_sc_hd__nor2_2.ext:
+Extracting sky130_fd_sc_hd__nand2_8 into sky130_fd_sc_hd__nand2_8.ext:
+Extracting sky130_fd_sc_hd__o211ai_4 into sky130_fd_sc_hd__o211ai_4.ext:
+Extracting sky130_fd_sc_hd__nor2_4 into sky130_fd_sc_hd__nor2_4.ext:
+Extracting sky130_fd_sc_hd__a22o_2 into sky130_fd_sc_hd__a22o_2.ext:
+Extracting sky130_fd_sc_hd__a21o_4 into sky130_fd_sc_hd__a21o_4.ext:
+Extracting sky130_fd_sc_hd__dlymetal6s2s_1 into sky130_fd_sc_hd__dlymetal6s2s_1.ext:
+Extracting sky130_fd_sc_hd__a32o_1 into sky130_fd_sc_hd__a32o_1.ext:
+Extracting sky130_fd_sc_hd__o21ba_1 into sky130_fd_sc_hd__o21ba_1.ext:
+Extracting sky130_fd_sc_hd__and2_2 into sky130_fd_sc_hd__and2_2.ext:
+Extracting sky130_fd_sc_hd__a22oi_4 into sky130_fd_sc_hd__a22oi_4.ext:
+Extracting sky130_fd_sc_hd__or3b_4 into sky130_fd_sc_hd__or3b_4.ext:
+Extracting sky130_fd_sc_hd__a22o_4 into sky130_fd_sc_hd__a22o_4.ext:
+Extracting sky130_fd_sc_hd__and3b_4 into sky130_fd_sc_hd__and3b_4.ext:
+Extracting sky130_fd_sc_hd__nand2_2 into sky130_fd_sc_hd__nand2_2.ext:
+Extracting sky130_fd_sc_hd__buf_8 into sky130_fd_sc_hd__buf_8.ext:
+Extracting sky130_fd_sc_hd__clkdlybuf4s25_1 into sky130_fd_sc_hd__clkdlybuf4s25_1.ext:
+Extracting sky130_fd_sc_hd__a211o_2 into sky130_fd_sc_hd__a211o_2.ext:
+Extracting sky130_fd_sc_hd__a211o_4 into sky130_fd_sc_hd__a211o_4.ext:
+Extracting sky130_fd_sc_hd__xor2_1 into sky130_fd_sc_hd__xor2_1.ext:
+Extracting sky130_fd_sc_hd__nor2b_4 into sky130_fd_sc_hd__nor2b_4.ext:
+Extracting sky130_fd_sc_hd__a221o_1 into sky130_fd_sc_hd__a221o_1.ext:
+Extracting sky130_fd_sc_hd__a22oi_2 into sky130_fd_sc_hd__a22oi_2.ext:
+Extracting sky130_fd_sc_hd__a2111o_4 into sky130_fd_sc_hd__a2111o_4.ext:
+Extracting sky130_fd_sc_hd__a221o_2 into sky130_fd_sc_hd__a221o_2.ext:
+Extracting sky130_fd_sc_hd__mux2_2 into sky130_fd_sc_hd__mux2_2.ext:
+Extracting sky130_fd_sc_hd__nand3b_4 into sky130_fd_sc_hd__nand3b_4.ext:
+Extracting sky130_fd_sc_hd__o22a_1 into sky130_fd_sc_hd__o22a_1.ext:
+Extracting sky130_fd_sc_hd__nand3_4 into sky130_fd_sc_hd__nand3_4.ext:
+Extracting sky130_fd_sc_hd__o2bb2a_1 into sky130_fd_sc_hd__o2bb2a_1.ext:
+Extracting sky130_fd_sc_hd__o221a_1 into sky130_fd_sc_hd__o221a_1.ext:
+Extracting sky130_fd_sc_hd__or4b_4 into sky130_fd_sc_hd__or4b_4.ext:
+Extracting sky130_fd_sc_hd__a221o_4 into sky130_fd_sc_hd__a221o_4.ext:
+Extracting sky130_fd_sc_hd__a21o_2 into sky130_fd_sc_hd__a21o_2.ext:
+Extracting sky130_fd_sc_hd__or4_4 into sky130_fd_sc_hd__or4_4.ext:
+Extracting sky130_fd_sc_hd__and3_4 into sky130_fd_sc_hd__and3_4.ext:
+Extracting sky130_fd_sc_hd__a21boi_4 into sky130_fd_sc_hd__a21boi_4.ext:
+Extracting sky130_fd_sc_hd__or2_4 into sky130_fd_sc_hd__or2_4.ext:
+Extracting sky130_fd_sc_hd__a211oi_4 into sky130_fd_sc_hd__a211oi_4.ext:
+Extracting sky130_fd_sc_hd__o31a_1 into sky130_fd_sc_hd__o31a_1.ext:
+Extracting sky130_fd_sc_hd__or2b_1 into sky130_fd_sc_hd__or2b_1.ext:
+Extracting sky130_fd_sc_hd__o211ai_1 into sky130_fd_sc_hd__o211ai_1.ext:
+Extracting sky130_fd_sc_hd__a21boi_2 into sky130_fd_sc_hd__a21boi_2.ext:
+Extracting sky130_fd_sc_hd__xor2_4 into sky130_fd_sc_hd__xor2_4.ext:
+Extracting sky130_fd_sc_hd__xnor2_4 into sky130_fd_sc_hd__xnor2_4.ext:
+Extracting sky130_fd_sc_hd__dlygate4sd1_1 into sky130_fd_sc_hd__dlygate4sd1_1.ext:
+Extracting sky130_fd_sc_hd__or3_4 into sky130_fd_sc_hd__or3_4.ext:
+Extracting sky130_fd_sc_hd__clkdlybuf4s15_2 into sky130_fd_sc_hd__clkdlybuf4s15_2.ext:
+Extracting sky130_fd_sc_hd__nor2_8 into sky130_fd_sc_hd__nor2_8.ext:
+Extracting sky130_fd_sc_hd__dlxtn_1 into sky130_fd_sc_hd__dlxtn_1.ext:
+Extracting sky130_fd_sc_hd__o21ai_2 into sky130_fd_sc_hd__o21ai_2.ext:
+Extracting sky130_fd_sc_hd__a21oi_2 into sky130_fd_sc_hd__a21oi_2.ext:
+Extracting sky130_fd_sc_hd__dlxtn_4 into sky130_fd_sc_hd__dlxtn_4.ext:
+Extracting sky130_fd_sc_hd__xnor2_2 into sky130_fd_sc_hd__xnor2_2.ext:
+Extracting sky130_fd_sc_hd__o22ai_1 into sky130_fd_sc_hd__o22ai_1.ext:
+Extracting sky130_fd_sc_hd__mux2_4 into sky130_fd_sc_hd__mux2_4.ext:
+Extracting sky130_fd_sc_hd__inv_4 into sky130_fd_sc_hd__inv_4.ext:
+Extracting sky130_fd_sc_hd__and4_1 into sky130_fd_sc_hd__and4_1.ext:
+Extracting sky130_fd_sc_hd__and4b_1 into sky130_fd_sc_hd__and4b_1.ext:
+Extracting sky130_fd_sc_hd__and4bb_1 into sky130_fd_sc_hd__and4bb_1.ext:
+Extracting sky130_fd_sc_hd__and4b_2 into sky130_fd_sc_hd__and4b_2.ext:
+Extracting sky130_fd_sc_hd__and2b_1 into sky130_fd_sc_hd__and2b_1.ext:
+Extracting sky130_fd_sc_hd__nand3b_1 into sky130_fd_sc_hd__nand3b_1.ext:
+Extracting sky130_fd_sc_hd__o22ai_2 into sky130_fd_sc_hd__o22ai_2.ext:
+Extracting sky130_fd_sc_hd__nand4_4 into sky130_fd_sc_hd__nand4_4.ext:
+Extracting sky130_fd_sc_hd__nand2b_2 into sky130_fd_sc_hd__nand2b_2.ext:
+Extracting sky130_fd_sc_hd__inv_6 into sky130_fd_sc_hd__inv_6.ext:
+Extracting sky130_fd_sc_hd__xor2_2 into sky130_fd_sc_hd__xor2_2.ext:
+Extracting sky130_fd_sc_hd__nor3b_2 into sky130_fd_sc_hd__nor3b_2.ext:
+Extracting sky130_fd_sc_hd__o221ai_1 into sky130_fd_sc_hd__o221ai_1.ext:
+Extracting sky130_fd_sc_hd__o221a_2 into sky130_fd_sc_hd__o221a_2.ext:
+Extracting sky130_fd_sc_hd__nand3_1 into sky130_fd_sc_hd__nand3_1.ext:
+Extracting sky130_fd_sc_hd__a311o_1 into sky130_fd_sc_hd__a311o_1.ext:
+Extracting sky130_fd_sc_hd__a311oi_2 into sky130_fd_sc_hd__a311oi_2.ext:
+Extracting sky130_fd_sc_hd__o41a_1 into sky130_fd_sc_hd__o41a_1.ext:
+Extracting sky130_fd_sc_hd__a211oi_1 into sky130_fd_sc_hd__a211oi_1.ext:
+Extracting sky130_fd_sc_hd__a211oi_2 into sky130_fd_sc_hd__a211oi_2.ext:
+Extracting sky130_fd_sc_hd__o31ai_4 into sky130_fd_sc_hd__o31ai_4.ext:
+Extracting sky130_fd_sc_hd__clkinv_4 into sky130_fd_sc_hd__clkinv_4.ext:
+Extracting sky130_fd_sc_hd__a311oi_4 into sky130_fd_sc_hd__a311oi_4.ext:
+Extracting sky130_fd_sc_hd__o2111a_1 into sky130_fd_sc_hd__o2111a_1.ext:
+Extracting sky130_fd_sc_hd__o41a_2 into sky130_fd_sc_hd__o41a_2.ext:
+Extracting sky130_fd_sc_hd__or4bb_1 into sky130_fd_sc_hd__or4bb_1.ext:
+Extracting sky130_fd_sc_hd__a2111oi_1 into sky130_fd_sc_hd__a2111oi_1.ext:
+Extracting sky130_fd_sc_hd__o2111ai_4 into sky130_fd_sc_hd__o2111ai_4.ext:
+Extracting sky130_fd_sc_hd__nand2b_1 into sky130_fd_sc_hd__nand2b_1.ext:
+Extracting sky130_fd_sc_hd__and2_4 into sky130_fd_sc_hd__and2_4.ext:
+Extracting sky130_fd_sc_hd__o31a_2 into sky130_fd_sc_hd__o31a_2.ext:
+Extracting sky130_fd_sc_hd__a311o_2 into sky130_fd_sc_hd__a311o_2.ext:
+Extracting sky130_fd_sc_hd__o311a_4 into sky130_fd_sc_hd__o311a_4.ext:
+Extracting sky130_fd_sc_hd__or4b_1 into sky130_fd_sc_hd__or4b_1.ext:
+Extracting sky130_fd_sc_hd__and4bb_4 into sky130_fd_sc_hd__and4bb_4.ext:
+Extracting sky130_fd_sc_hd__a31oi_1 into sky130_fd_sc_hd__a31oi_1.ext:
+Extracting sky130_fd_sc_hd__nor3_2 into sky130_fd_sc_hd__nor3_2.ext:
+Extracting sky130_fd_sc_hd__o2111ai_2 into sky130_fd_sc_hd__o2111ai_2.ext:
+Extracting sky130_fd_sc_hd__a2111o_1 into sky130_fd_sc_hd__a2111o_1.ext:
+Extracting sky130_fd_sc_hd__or4bb_2 into sky130_fd_sc_hd__or4bb_2.ext:
+Extracting sky130_fd_sc_hd__a221oi_1 into sky130_fd_sc_hd__a221oi_1.ext:
+Extracting femto into femto.ext:
+exttospice finished.

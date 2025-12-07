@@ -1,0 +1,132 @@
+magic
+tech sky130A
+magscale 1 2
+timestamp 1759174272
+<< obsli1 >>
+rect 1104 2159 89976 90865
+<< obsm1 >>
+rect 14 1980 89976 90896
+<< metal2 >>
+rect 21914 92459 21970 93259
+rect 49606 92459 49662 93259
+rect 77298 92459 77354 93259
+rect 18 0 74 800
+rect 27066 0 27122 800
+rect 54758 0 54814 800
+rect 82450 0 82506 800
+<< obsm2 >>
+rect 20 92403 21858 92562
+rect 22026 92403 49550 92562
+rect 49718 92403 77242 92562
+rect 77410 92403 89958 92562
+rect 20 856 89958 92403
+rect 130 734 27010 856
+rect 27178 734 54702 856
+rect 54870 734 82394 856
+rect 82562 734 89958 856
+<< metal3 >>
+rect 0 87048 800 87168
+rect 90315 78208 91115 78328
+rect 0 57808 800 57928
+rect 90315 48968 91115 49088
+rect 0 28568 800 28688
+rect 90315 19728 91115 19848
+<< obsm3 >>
+rect 798 87248 90315 90881
+rect 880 86968 90315 87248
+rect 798 78408 90315 86968
+rect 798 78128 90235 78408
+rect 798 58008 90315 78128
+rect 880 57728 90315 58008
+rect 798 49168 90315 57728
+rect 798 48888 90235 49168
+rect 798 28768 90315 48888
+rect 880 28488 90315 28768
+rect 798 19928 90315 28488
+rect 798 19648 90235 19928
+rect 798 2143 90315 19648
+<< metal4 >>
+rect 4944 2128 5264 90896
+rect 5604 2128 5924 90896
+rect 35664 2128 35984 90896
+rect 36324 2128 36644 90896
+rect 66384 2128 66704 90896
+rect 67044 2128 67364 90896
+<< obsm4 >>
+rect 2635 2483 4864 88909
+rect 5344 2483 5524 88909
+rect 6004 2483 35584 88909
+rect 36064 2483 36244 88909
+rect 36724 2483 66304 88909
+rect 66784 2483 66964 88909
+rect 67444 2483 88077 88909
+<< metal5 >>
+rect 1056 67948 90024 68268
+rect 1056 67288 90024 67608
+rect 1056 37312 90024 37632
+rect 1056 36652 90024 36972
+rect 1056 6676 90024 6996
+rect 1056 6016 90024 6336
+<< obsm5 >>
+rect 12444 37952 79556 50140
+rect 12444 7660 79556 36332
+<< labels >>
+rlabel metal3 s 90315 48968 91115 49088 6 LEDS
+port 1 nsew signal output
+rlabel metal2 s 54758 0 54814 800 6 RXD
+port 2 nsew signal input
+rlabel metal2 s 77298 92459 77354 93259 6 TXD
+port 3 nsew signal output
+rlabel metal4 s 5604 2128 5924 90896 6 VGND
+port 4 nsew ground bidirectional
+rlabel metal4 s 36324 2128 36644 90896 6 VGND
+port 4 nsew ground bidirectional
+rlabel metal4 s 67044 2128 67364 90896 6 VGND
+port 4 nsew ground bidirectional
+rlabel metal5 s 1056 6676 90024 6996 6 VGND
+port 4 nsew ground bidirectional
+rlabel metal5 s 1056 37312 90024 37632 6 VGND
+port 4 nsew ground bidirectional
+rlabel metal5 s 1056 67948 90024 68268 6 VGND
+port 4 nsew ground bidirectional
+rlabel metal4 s 4944 2128 5264 90896 6 VPWR
+port 5 nsew power bidirectional
+rlabel metal4 s 35664 2128 35984 90896 6 VPWR
+port 5 nsew power bidirectional
+rlabel metal4 s 66384 2128 66704 90896 6 VPWR
+port 5 nsew power bidirectional
+rlabel metal5 s 1056 6016 90024 6336 6 VPWR
+port 5 nsew power bidirectional
+rlabel metal5 s 1056 36652 90024 36972 6 VPWR
+port 5 nsew power bidirectional
+rlabel metal5 s 1056 67288 90024 67608 6 VPWR
+port 5 nsew power bidirectional
+rlabel metal3 s 0 57808 800 57928 6 clk
+port 6 nsew signal input
+rlabel metal2 s 18 0 74 800 6 resetn
+port 7 nsew signal input
+rlabel metal2 s 82450 0 82506 800 6 spi_clk
+port 8 nsew signal output
+rlabel metal3 s 0 28568 800 28688 6 spi_clk_ram
+port 9 nsew signal output
+rlabel metal2 s 49606 92459 49662 93259 6 spi_cs_n
+port 10 nsew signal output
+rlabel metal3 s 90315 78208 91115 78328 6 spi_cs_n_ram
+port 11 nsew signal output
+rlabel metal2 s 27066 0 27122 800 6 spi_miso
+port 12 nsew signal input
+rlabel metal3 s 0 87048 800 87168 6 spi_miso_ram
+port 13 nsew signal input
+rlabel metal2 s 21914 92459 21970 93259 6 spi_mosi
+port 14 nsew signal output
+rlabel metal3 s 90315 19728 91115 19848 6 spi_mosi_ram
+port 15 nsew signal output
+<< properties >>
+string FIXED_BBOX 0 0 91115 93259
+string LEFclass BLOCK
+string LEFview TRUE
+string GDS_END 29770152
+string GDS_FILE /openlane/designs/femto/runs/full_guide/results/signoff/femto.magic.gds
+string GDS_START 1153988
+<< end >>
+

@@ -1,0 +1,10 @@
+ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+Warning: Wire femto.\spi_mosi_ram is used but has no driver.
+Warning: Wire femto.\spi_mosi is used but has no driver.
+Warning: Wire femto.\spi_cs_n_ram is used but has no driver.
+Warning: Wire femto.\spi_cs_n is used but has no driver.
+Warning: Wire femto.\spi_clk_ram is used but has no driver.
+Warning: Wire femto.\spi_clk is used but has no driver.
+Warning: Wire femto.\TXD is used but has no driver.
+Warning: Wire femto.\LEDS is used but has no driver.
+Warnings: 8 unique messages, 8 total

@@ -1,0 +1,6 @@
+<< properties >>
+string FIXED_BBOX 0 0 91115 93259
+string GDS_END 29770152
+string GDS_FILE /openlane/designs/femto/runs/full_guide/results/signoff/femto.magic.gds
+string GDS_START 1153988
+<< end >>

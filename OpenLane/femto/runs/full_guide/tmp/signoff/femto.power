@@ -1,0 +1,8 @@
+VPWR power 1.8
+VGND power 0.0
+#define std_input min@VGND max@VPWR
+RXD input std_input
+clk input std_input
+resetn input std_input
+spi_miso input std_input
+spi_miso_ram input std_input

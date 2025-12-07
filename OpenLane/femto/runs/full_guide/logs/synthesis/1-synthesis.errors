@@ -1,0 +1,4 @@
+     5/7: $0\rx_error[0:0]
+Creating register for signal `$paramod$1ff9e88c83222e524ee14446c2eb7f71f974bb2f\uart.\rx_error' using process `$paramod$1ff9e88c83222e524ee14446c2eb7f71f974bb2f\uart.$proc$/openlane/designs/femto/src/uart.v:66$306'.
+Adding SRST signal on $flatten\per_uart.\uart0.$procdff$1109 ($dff) from module femto (D = $flatten\per_uart.\uart0.$procmux$796_Y, Q = \per_uart.uart0.rx_error, rval = 1'0).
+ABC: Error: The network is combinational.

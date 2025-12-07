@@ -1,0 +1,7 @@
+Warning: /openlane/designs/femto/runs/full_guide/results/routing/femto.nl.v line 46488, module sky130_fd_sc_hd__tapvpwrvgnd_1 not found. Creating black box for TAP_326.
+Warning: /openlane/designs/femto/runs/full_guide/results/routing/femto.nl.v line 53025, module sky130_ef_sc_hd__decap_12 not found. Creating black box for FILLER_0_0_7.
+Warning: /openlane/designs/femto/runs/full_guide/results/routing/femto.nl.v line 53027, module sky130_fd_sc_hd__fill_1 not found. Creating black box for FILLER_0_0_27.
+Warning: /openlane/designs/femto/runs/full_guide/results/routing/femto.nl.v line 53055, module sky130_fd_sc_hd__fill_2 not found. Creating black box for FILLER_0_0_281.
+Warning: There are 2 unclocked register/latch pins.
+Warning: There are 42 unconstrained endpoints.
+[WARNING] Did not save OpenROAD database!

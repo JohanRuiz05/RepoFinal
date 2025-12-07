@@ -1,0 +1,18 @@
+%Warning-UNUSEDSIGNAL: /openlane/designs/femto/src/MappedSPIRAM.v:8:25: Bits of signal are not used: 'word_address'[19:16]
+                                                                      : ... In instance femto.mapped_spi_ram
+    8 |     input wire [19:0]   word_address,   
+      |                         ^~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.009
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /openlane/designs/femto/src/MappedSPIRAM.v:10:25: Bits of signal are not used: 'wdata'[31:8]
+                                                                       : ... In instance femto.mapped_spi_ram
+   10 |     input wire [31:0]   wdata,          
+      |                         ^~~~~
+%Warning-UNUSEDSIGNAL: /openlane/designs/femto/src/MappedSPIRAM.v:33:6: Signal is not used: 'clk_div'
+                                                                      : ... In instance femto.mapped_spi_ram
+   33 |  reg clk_div;
+      |      ^~~~~~~
+%Warning-UNUSEDSIGNAL: /openlane/designs/femto/src/uart.v:64:11: Bits of signal are not used: 'rxd_reg'[0]
+                                                               : ... In instance femto.per_uart.uart0
+   64 | reg [9:0] rxd_reg;
+      |           ^~~~~~~
