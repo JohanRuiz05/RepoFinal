@@ -40,8 +40,10 @@ V17=l.get_data('v(uo_out[5])')
 V18=l.get_data('v(uo_out[6])')
 V19=l.get_data('v(uo_out[7])')
 
-signals = [V1, V2, V3, V12, V13, V14, V15, V16, V17, V18, V19]
-sig_names = ["clk", "rst_n", "init", "pp0", "pp1", "pp2", "pp3", "pp4", "pp5", "pp6", "pp7"]
+V20=l.get_data('v(uio_out[1])')
+
+signals = [V1, V2, V3, V12, V13, V14, V15, V16, V17, V18, V19, V20]
+sig_names = ["clk", "rst_n", "init", "pp0", "pp1", "pp2", "pp3", "pp4", "pp5", "pp6", "pp7", "done"]
 
 # Create stacked subplots
 fig, axes = plt.subplots(15, 1, figsize=(12, 20), sharex=True)
