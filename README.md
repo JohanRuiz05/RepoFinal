@@ -211,8 +211,59 @@ magic -T $PDK_ROOT/sky130A/libs.tech/magic/sky130A.tech tt_um_femto.gds
 
 Con el resultado, se repiten los pasos indicados en la sección Simulación de SPICE de manera local. De esta manera, se puede comprobar que el diseño enviado a Tiny Tapeout es correcto y genera los mismos resultados que la ejecución local del flujo de trabajo, a partir de los archivos de salida. Es importante tener en cuenta que es posible usar la simulación ya generada con GTKWave para obtener el .tim, pero al convertirlo al archivo .cir es necesario cambiar los nombres de las señales a los nombres dados en los archivos de Tiny Tapeout (ui_in[7:0], uo_out[7:0], entre otros), de tal manera que concuerden con el archivo . spice generado. De la misma manera, las señales deben ser llamadas de la misma forma en el archivo plot.py para que sean graficadas correctamente, asignando el path correcto al archivo .raw generado. Así, se concluye el procedimiento realizado.
 
-
 ## Aplicación
+
+### Procesador FemtoRV (femto)
+
+Habiendo realizado los primeros tres pasos del flujo de trabajo como fue descrito anteriormente, cuyos resultados se encuentran en la presente carpeta del repositorio, se procedió a realizar la extracción en SPICE del resultado a partir del archivo .mag, recordando que está ubicado en [results](/OpenLane/femto/runs/full_guide/results/final), siguiendo los comandos descritos en la sección Manejo de Magic. El resultado obtenido se ubicó en la carpeta [spice/femto](spice/femto/femto.spice), que contiene todos los archivos de diseño requeridos y resultantes desde este paso.
+
+Teniendo lo anterior, se abrió el archivo de GTKWave y se ubicaron las señales de interés para la simulación en el visor de formas de onda. Para femto se tenían cuatro señales necesarias: clk (clock del sistema), resetn (reset del sistema), spi_miso y spi_miso_ram (interfaces master input slave output). Una vez definidas, se exporta el archivo TIM y se le da como nombre [femto.tim](spice/femto/femto.tim).
+
+El resultado, como fue descrito, es un archivo .tim a partir del cual se puede generar el archivo .cir que recibe como entrada Ngspice o Xyce, y que contiene una representación temporal de las señales a simular, a través de flancos digitales de subida y bajada entre 0 (0 V) y 1 (3.3 V). Para la conversión usó el script de Python tim_to_pwl.py, disponible en la carpeta [/spice](/spice/tim_to_pwl.py) para su uso en otros diseños, cuya ejecución generó un .cir del mismo nombre [femto.cir](/spice/femto/femto.cir) con las señales exportadas de GTKWave. El resultado se ve a continuación, donde se destacan como parámetros importantes el tiempo de simulación (.tran), que aumenta o reduce los recursos necesarios para la simulación, el llamado a las librerías SPICE de sky130 y el include del archivo .spice generado en el anterior paso.
+
+![CIR](img/cir_example.png)
+
+Para ejecutar la simulación, se usó tanto Xyce como Ngspice, pero la complejidad del circuito de salida impidió obtener el resultado esperado, ya que se requería una alta capacidad de memoria RAM para el procesamiento. Esto se debía al tamaño y complejidad del SPICE generado, que pese a no tener resistencias ni capacitancias parásitas tenía un gran número de rutas que dificultaban su ejecución. Sin embargo, para continuar con el desarrollo, se procedió a la integración del desarrollo con Tiny Tapeout. 
+
+Para este fin, fue necesario realizar una serie de cambios al código de origen para adaptarlo a los requerimientos de la plataforma, necesarios para su aceptación. El flujo de trabajo era automático desde Github, usando herramientas muy similares a las descritas en la sección FLujo de trabajo. El repositorio usado para este fin, clonado a partir de la plantilla de Tiny Tapeout para Sky130, se encuentra en el siguiente [link](https://github.com/JohanRuiz05/femtoRV).
+
+En los archivos de Verilog de origen únicamente se debía adaptar el módulo top, femto.v. El módulo final se puede ver en la carpeta  [/src](https://github.com/JohanRuiz05/femtoRV/blob/main/src/femto.v) del repositorio. Adicionalmente, se debían establecer explícitamente los parámetros de funcionamiento, archivos source y pines de entrada y salida en el archivo [info.yaml](https://github.com/JohanRuiz05/femtoRV/blob/main/info.yaml), así como diligenciar la información requerida en el archivo [info.md]([../docs/info.md](https://github.com/JohanRuiz05/femtoRV/blob/main/docs/info.md)) dentro de la carpeta /docs. Con este procedimiento, y corrigiendo diferentes errores asociados principalmente a la sintaxis exigida por Tiny Tapeout, se completó el flujo de trabajo exigido para la recepción del trabajo. El más relevante de los resultados es gds, ya que describe el mismo flujo de trabajo realizado de manera local y, por ende, brinda los resultados necesarios para las siguientes etapas.
+
+Por otra parte, se hizo la adaptación del testbench de diseño, actualizando los archivos de la carpeta /test [tb.v](https://github.com/JohanRuiz05/femtoRV/blob/main/test/tb.v) con las señales del módulo top en Verilog; [test.py](https://github.com/JohanRuiz05/femtoRV/blob/main/test/test.py) con la instanciación de las señales para CocoTB y [Makefile](https://github.com/JohanRuiz05/femtoRV/blob/main/test/Makefile) llamando a los diferentes módulos de Verilog necesarios para el funcionamiento del proyecto. Se debe mencionar que se comentó la función assert dentro del script de python test.py, de tal manera que no se hiciera una verificación del diseño con esta herramienta, sino que se probaran los resultados de forma local. Para este objetivo, se pueden seguir los pasos descritos en el [README](https://github.com/JohanRuiz05/femtoRV/blob/main/test/README.md) de la plantilla.
+
+La ejecución del proceso se puede ver en la sección Actions del repositorio, que brinda toda la información relevante y detallada de cada proceso, errores en caso de que se presenten y los resultados, tardando aproximadamente media hora en concluir (por acción de gds).
+
+Una vez que concluyeronn las tres acciones y todas fueron aceptadas, se remitió a Github Actions buscando verificar los resultados. En la parte izquierda aparece un menú de los diferentes workflows ejecutados, donde se debe seleccionar gds al corresponder a los resultados de síntesis del proyecto, como se observa a continuación.
+
+![RESULTS](img/resultsGds.png)
+
+Seleccionando la última ejecución exitosa, se abre el resumen del proceso realizado (gds summary), el cual se puede consultar para mayor información del uso de recursos para las condiciones establecidas de diseño (uso de celdas, utilización de tutas, warnings, procesos de precheck, entre otros). La última sección, llamada Artifacts, contiene los resultados finales, permitiendo su descarga para el análisis. La simulación se realizó con la carpeta de salida tt_submission, como se puede ver.
+
+![SUBMISSION](img/tt_submisions.png)
+
+La carpeta descargada, que puede ser consultada en el presente repositorio en la carpeta [/tt_um_femto](/spice/tt_um_femto/tt_submission), debe ser descomprimida por estar en formato .zip, y contiene los archivos src del diseño, así como una subcarpeta llamada tt_submission, donde se encuentra:
+
+- tt_um_femto.gds
+- tt_um_femto.lef
+- tt_um_femto.spef (max, min y nom)
+- tt_um_femto.oas
+- tt_um_femto.v
+
+A partir de los cuales es posible obtener el archivo .spice recordando los comandos descritos para la extracción de Magic (Manejo de Magic) por medio del archivo tt_um_femto.gds. EL comando para abrir Magic sobre este archivo es:
+
+```bash
+export PDK_ROOT=/usr/local/share/pdk/
+export PDK=sky130A
+magic -T $PDK_ROOT/sky130A/libs.tech/magic/sky130A.tech tt_um_femto.gds
+```
+
+Posteriormente, se configuró la extracción solo de dispositivos (sin parásitos), siguiendo los pasos de la sección de Manejo de Magic. El archivo resultante permite repetir los pasos descritos durante la simulación del diseño, ubicando todos los archivos de salida en la carpeta [tt_um_femto](spice/tt_um_femto). Los archivos .ext generados durante la extracción, salvo por tt_um_femto.ext (sobre el que se aplica ext2spice), no fueron usados. 
+
+Con lo anterior, basta regresar al archivo .tim generado a partir de la traza [tt_um_femto_sim_1.gtk](spice/tt_um_femto/tt_um_femto_sim_1.gtk), que se observa a continuación, para su conversión a un nuevo .cir.
+
+![RESULTSF](img/resultsFemto.png)
+
+El resultado se llamó [tt_um_femto_TB.cir](/spice/tt_um_femto/tt_um_femto_TB.cir), y en este se cambiaron los nombres de las señales (acorde con los cambios realizados para Tiny Tapeout) y se añadió el .spice directamente para no hacer uso de include. Los pasos siguientes (con Xyce o Ngspice) no pudieron ser realizados de nuevo por la complejidad del circuito extraído, lo que impidió una simulación a nivel físico de la implementación de femto, si bien todos los resultados del proceso y archivos necesarios para replicar el procedimiento se encuentran en la carpeta [/tt_um_femto](/spice/tt_um_femto). Para comprobar que las etapas del flujo de trabajo se habían implementado de manera correcta, se repitió el proceso completo para un diseño ya comprobado de menor complejidad, un multiplicador de 4 bits, como se describe en la siguiente sección.
 
 ### Multiplicador de 4 bits (mult_4)
 
@@ -274,155 +325,3 @@ Finalmente, se modificó el archivo [plot_Mult_4](spice/tt_um_mult_4/plot_Mult_4
 
 ![MULTRES](img/mult_result.png)
 
-
-### Procesador FemtoRV (femto)
-
-Con el procesador FemtoRV se 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Con lo anterior, es necesario abrir el archivo de GTKWave y ubicar las señales de interés para la simulación en la pestaña de formas de onda. En el caso de /femto, se tenían cuatro señales necesarias: clk (clock del sistema), resetn (reset del sistema), spi_miso y spi_miso_ram (interfaces master input slave output). Para otros diseños pueden añadirse las necesarias. Una vez definidas, se elige la opción File -> Export -> Write TIM File as y se le da un nombre al archivo .tim, como se ve a continuación.
-
-Desde este punto se remitirá al respositorio [femto](https://github.com/JohanRuiz05/femto) para los archivos finales. Para el siguiente paso, se creó la carpeta /spice en femto, y dentro de esta una subcarpeta con el nombre del diseño (femtoRV/spice/femto). En esta se ubicó el archivo .spice generado, junto con los archivos generados con iverilog. Es importante mencionar que el flujo requiere varios archivos de sky_130 para funcionar, por lo que es necesario que estén incluidos en la carpeta de origen o que se apunte a ellos. Estos son:
-
-- sky130_fd_sc_hd.v
-- primitives.v
-
-Con lo anterior, es necesario abrir el archivo de GTKWave y ubicar las señales de interés para la simulación en la pestaña de formas de onda. En el caso de /femto, se tenían cuatro señales necesarias: clk (clock del sistema), resetn (reset del sistema), spi_miso y spi_miso_ram (interfaces master input slave output). Para otros diseños pueden añadirse las necesarias. Una vez definidas, se elige la opción File -> Export -> Write TIM File as y se le da un nombre al archivo .tim, como se ve a continuación.
-
-![TIM](img/tim_export.png)
-
-El resultado de este paso es un archivo .tim a partir del cual se puede generar el archivo .cir que recibe como entrada NGSpice o Xyce, y que contiene una representación de las señales a simular. Para la conversión se creó un script de Python (2_tim_to_pwl.py) que se encargaba de pasar los datos de .tim al formato .cir sin alterar los nombres de las señales y definiendo un epsilon para los cambios de estado de las señales. El parámetro epsilon era esencial para asegurar el funcionamiento del paso, ya que tiempos muy cortos (inferiores a 1e-09) ocasionaban errores en Xyce. Este parámetro, por lo tanto, es editable. El comando para ejecutar el script, asumiendo que está ubicado en femtoRV/spice (una carpeta antes), es:
-
-```bash
-python3 ../tim_to_pwl.py <tim filename>
-```
-
-La ejecución del script generaba un .cir del mismo nombre con las señales exportadas de GTKWave. El ejemplo para /femto se ve a continuación, donde se destacan como parámetros importantes el tiempo de simulación (.tran), que aumenta o reduce los recursos necesarios para la simulación, el llamado a las librerías SPICE de sky130 y el include del archivo .spice generado en el anterior paso.
-
-![CIR](img/cir_example.png)
-
-Así, se completaban los archivos necesarios para la simulación. Se tenían dos opciones para correrlo, con sus comandos correspondientes:
-
-* Con Xyce
-
-```bash
-mpirun -np <num. procs> Xyce <netlist filename>
-```
-
-* Con NGSpice
-
-```bash
-ngspice <netlist filename>
-```
-
-Lo que generaba como salida un archivo .raw que permitía la visualización de los resultados. Es importante mencionar que el tiempo de simulación dependía en gran medida del tamaño del archivo .spice, de la cantidad de señales del archivo .tim y de la complejidad del diseño. Para visualizar el archivo .raw, se generó otro script de Python (plot.py) que tomaba el resultado de la simulación (apuntaba al .raw generado) y, por medio de LTSpice, permitía graficarlo, para así comparar las dos simulaciones de diferentes etapas del proceso. El comando era:
-
-```bash
-python3 plot.py
-```
-
-En algunas distribuciones de Linux no existe LTSpice como aplicación para instalar, por lo que es necesario crear un entorno de Python para poder graficar el resultado. Los comandos para este fin son:
-
-```bash
-python3 -m venv <env name> #Solo se ejecuta una vez para crear el entorno, si ya existe se omite
-source <env name>/bin/activate
-pip install ltspice #Solo se ejecuta una vez para instalar LTSpice, si ya se realizó se omite
-```
-
-Un ejemplo de lo que debería verse en este paso se muestra en la siguiente imagen:
-
-![PY_PLOT](img/py_example.png)
-
-En el caso de femto, se presentaron problemas durante la simulación debido al tamaño del .spice. En la carpeta /spice de [femto](https://github.com/JohanRuiz05/femto/tree/main/spice) hay otras simulaciones, como mult_4 y mult_32 que funcionan adecuadamente para probar los pasos descritos.
-
-## Tiny Tapeout
-
-Para enviar el procesador diseñado a Tiny Tapeout fue necesario realizar una serie de cambios al código de origen para adaptarlo a los requerimientos de la plataforma, necesarios para su aceptación. El flujo de trabajo era automático desde Github, usando herramientas muy similares a las descritas hasta este paso. La plantilla usada para un diseño con sky se encuentra en [Tiny Tapeout](https://github.com/TinyTapeout/ttsky-verilog-template), donde se indican también los pasos necesarios para participar en el proyecto.
-
-En los archivos de Verilog de origen únicamente se debía adaptar el módulo top, femto.v, que pasaba a ser tt_um_femto.v. El módulo final se puede ver en la carpeta [femtoRV/src](../src). Adicionalmente, se debían establecer explícitamente los parámetros de funcionamiento, archivos source y  pines de entrada y salida en el archivo [info.yaml](../info.yaml) y llenar algunos datos adicionales en [info.md](../docs/info.md). Con este procedimiento, y corrigiendo diferentes errores asociados principalmente a la sintaxis exigida por Tiny Tapeout, se completó el flujo de trabajo exigido para la recepción de trabajos, principalmente la ejecución con sky en el proceso gds, el más relevante de los procesos.
-
-Se debe mencionar que uno de los pasos requería la adaptación de un testbench del diseño por medio de CocoTB, un framework basado en Python para verificar diseños en HDL, pero no se simuló ninguna salida en este para evitar errores asociados al tiempo de ejecución. El flujo de trabajo automático genera una serie de resultados que podían ser simulados directamente siguiendo un proceso similar al descrito anteriormente, por lo que se prefirió esta forma de verificar que el diseño enviado fuera correcto. Resumiendo:
-
-- Proceso docs: Actualizar el archivo info.md en la carpeta [/docs](../docs) del proyecto con la información requerida.
-- Proceso test: Actualizar los archivos [tb.v](../test/tb.v) con las señales del módulo top en Verilog; [test.py](../test/test.py) con ña instanciación de las señales para CocoTB y [Makefile](../test/Makefile) llamando a los diferentes módulos de Verilog necesarios para el funcionamiento del proyecto. Se pueden seguir los pasos descritos en el [README](https://github.com/JohanRuiz05/femtoRV/blob/main/test/README.md) de la plantilla.
-
-La ejecución del proceso se puede ver en la sección Actions del repositorio, que brinda toda la información relevante y detallada de cada proceso, errores en caso de que se presenten y los resultados, tardando aproximadamente media hora en concluir (por acción de gds). Cada cambio activa automáticamente la acción de los tres procesos, que deben ser superados (cuadro en verde) para asegurar que el flujo es correcto. Para identificar errores, se puede descargar el archivo .zip generado en cada paso, que contiene los logs detallados del error.
-
-### Simulación de resultados de Tiny Tapeout
-
-Una vez que concluyen las acciones y todas son aceptadas, es posible remitirse a Actions y verificar los resultados. En la parte izquierda aparece un menú de los diferentes workflows ejecutados, donde se debe seleccionar gds al corresponder a los resultados de síntesis del proyecto, como se observa a continuación.
-
-![RESULTS](img/resultsGds.png)
-
-Seleccionando la última ejecución exitosa, se abre el resumen del proceso realizado (gds summary), el cual se puede consultar para mayor información del uso de recursos para las condiciones establecidas de diseño (uso de celdas, utilización de tutas, warnings, procesos de precheck, entre otros). La última sección, llamada Artifacts, contiene los resultados finales, permitiendo su descarga para el análisis. La simulación se realizó con la carpeta de salida tt_submission, como se puede ver.
-
-![SUBMISSION](img/tt_submisions.png)
-
-La carpeta descargada (puede ser necesario descomprimirla) contiene los archivos src del diseño, así como una subcarpeta llamada tt_submission, donde se encuentra:
-
-- tt_um_femto.gds
-- tt_um_femto.lef
-- tt_um_femto.spef (max, min y nom)
-- tt_um_femto.oas
-- tt_um_femto.v
-
-A partir de los cuales es posible obtener el archivo .spice recordando los comandos descritos para la extracción de Magic (Manejo de Magic) usando el archivo tt_um_femto.gds, pero indicando de manera explícita el path de trabajo para Magic con:
-
-```bash
-export PDK_ROOT=/usr/local/share/pdk/
-export PDK=sky130A
-magic -T $PDK_ROOT/sky130A/libs.tech/magic/sky130A.tech tt_um_femto.gds
-```
-
-Posteriormente, se configura la extracción solo de dispositivos (sin parásitos), siguiendo los pasos de la sección de Manejo de Magic. El archivo resultante permite repetir los pasos descritos durante la simulación del diseño, ubicando todo en una carpeta llamada tt_um_femto dentro de femtoRV/spice; pero también se generan una serie de archivos .ext durante la extracción, estos no se emplearon. 
-
-Repitiendo los pasos del procedimiento Simulación de diseño, se genera la simulación en GTKWave y se obtiene el archivo .tim, que posteriormente se convierte a .cir con el script de Python (2_tim_to_pwl). Adicionalmente, se adaptan los archivos Makefile y pLot.py para tt_um_femto, alcanzando los resultados ya descritos, y se realiza la compilación con iverilog. Los archivos finales de este proceso se encuentran en [femto](). El archivo de formas de onda resultante (a partir del .vcd generado) en GTKWave se observa a continuación, correspondiente al archivo tt_um_femto_sim_1.gtk.
-
-![RESULTSF](img/resultsFemto.png)
-
-Obteniendo la simulación de tiempo funcional. Los pasos siguientes (con Xyce o Ngspice) no pudieron ser replicados por la complejidad del circuito extraído, lo que impidió una simulación a nivel físico de la implementación de femto. SIn embargo, para comprobar que el proceso se había realizado de manera correcta, se repitió el proceso completo (implementación, simulación del diseño y prueba con Tiny Tapeout) ára un archivo ya comprobado de menor complejidad, un multiplicador de 4 bits. 
-
-### Multiplicador de 4_bits
-
-CAmbio exportación MAgic
-
-Extracción
-
-```bash
-gds noduplicates
-gds readonly true
-extract do local
-extract all
-```
-
-Creación .spice
-
-```bash
-ext2spice lvs
-ext2spice cthresh infinite
-ext2spice rthresh infinite
-ext2spice subcircuit off
-ext2spice hierarchy off
-ext2spice scale off
-ext2spice
-```
