@@ -1,15 +1,12 @@
-TARGET=tt_um_mult_4
-TOP=tt_um_mult_4
+TARGET=Mult_4
+TOP=Mult_4
 NPROC=4
 
-SIM_OBJS = src/mult_4.v
-SIM_OBJS += src/acc.v
-SIM_OBJS += src/comp.v
-SIM_OBJS += src/control_mult.v
-SIM_OBJS += src/lsr.v
-SIM_OBJS += src/rsr.v
-SIM_OBJS_SKY = src/verilog_model/sky130_fd_sc_hd.v
-SIM_OBJS_SKY += src/verilog_model/primitives.v
+OBJS = Mult_4.nl.v
+PER_OBJS = perip_mult.v $(OBJS)
+SIM_OBJS = cores/sim_spi_flash/spiflash.v
+SIM_OBJS_SKY = ../verilog_model/sky130_fd_sc_hd.v
+SIM_OBJS_SKY += ../verilog_model/primitives.v
 
 
 BUILD_DIR = build
@@ -18,7 +15,7 @@ all: sim
 
 sim:
 	rm -f a.out *.vcd
-	iverilog -DBENCH -DSIM -DPASSTHROUGH_PLL -DBOARD_FREQ=50 -DCPU_FREQ=50 tt_um_mult_4_TB.v ${SIM_OBJS}	
+	iverilog -DFUNCTIONAL -DUNIT_DELAY=#1  $(TARGET)_TB.v $(OBJS) ${SIM_OBJS_SKY}	
 	vvp a.out
 	gtkwave $(TARGET)_TB.vcd $(TARGET)_TB.gtkw
 

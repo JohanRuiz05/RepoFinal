@@ -4,9 +4,9 @@ import numpy as np
 import os
 #from scipy import signal
 
-filepath='/home/sebastian/VLSI/femtoRV/spice/mult_4_2/tt_um_mult_4.raw'
+filepath='/home/sebastian/VLSI/femtoRV/spice/Mult_4/Mult4_cir.raw'
 l=ltspice.Ltspice(filepath)
-l.parse()
+l.parse() # Data loading sequence. It may take few minutes for huge file.
 
 # Obtener y mostrar todos los nombres de las señales
 signal_names = l.getVariableNames()
@@ -15,35 +15,30 @@ signal_names = l.getVariableNames()
 print("Nombres de todas las señales en el archivo:")
 for name in signal_names:
     print(f"- {name}")
-    
+
 time=l.get_time()
 V1=l.get_data('V(clk)')
-V2=l.get_data('v(rst_n)')
-V3=l.get_data('v(uio_in[0])')
+V2=l.get_data('v(rst)')
+V3=l.get_data('v(init)')
+V4=l.get_data('v(control0.sh)')
+V5=l.get_data('v(control0.add)')
+V6=l.get_data('v(A[0])')
+V7=l.get_data('v(A[1])')
+V8=l.get_data('v(a[2])')
+V9=l.get_data('v(a[3])')
+V10=l.get_data('v(A[7])')
+V11=l.get_data('v(pp[0])')
+V12=l.get_data('v(pp[1])')
+V13=l.get_data('v(pp[2])')
+V14=l.get_data('v(pp[3])')
+V15=l.get_data('v(pp[4])')
+V16=l.get_data('v(pp[5])')
+V17=l.get_data('v(pp[6])')
+V18=l.get_data('v(pp[7])')
+V19=l.get_data('v(done)')
 
-V4=l.get_data('v(ui_in[0])')
-V5=l.get_data('v(ui_in[1])')
-V6=l.get_data('v(ui_in[2])')
-V7=l.get_data('v(ui_in[3])')
-
-V8=l.get_data('v(ui_in[4])')
-V9=l.get_data('v(ui_in[5])')
-V10=l.get_data('v(ui_in[6])')
-V11=l.get_data('v(ui_in[7])')
-
-V12=l.get_data('v(uo_out[0])')
-V13=l.get_data('v(uo_out[1])')
-V14=l.get_data('v(uo_out[2])')
-V15=l.get_data('v(uo_out[3])')
-V16=l.get_data('v(uo_out[4])')
-V17=l.get_data('v(uo_out[5])')
-V18=l.get_data('v(uo_out[6])')
-V19=l.get_data('v(uo_out[7])')
-
-V20=l.get_data('v(uio_out[1])')
-
-signals = [V1, V2, V3, V12, V13, V14, V15, V16, V17, V18, V19, V20]
-sig_names = ["clk", "rst_n", "init", "pp0", "pp1", "pp2", "pp3", "pp4", "pp5", "pp6", "pp7", "done"]
+signals = [V1, V2, V3, V4, V5, V11, V12, V13, V14, V15, V16, V17, V18, V19]
+sig_names = ["clk", "rst", "init", "sh", "add", "pp0", "pp1", "pp2", "pp3", "pp4", "pp5", "pp6", "pp7", "done"]
 
 # Create stacked subplots
 fig, axes = plt.subplots(15, 1, figsize=(12, 20), sharex=True)
