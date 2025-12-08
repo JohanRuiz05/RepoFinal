@@ -269,7 +269,7 @@ El resultado se llamó [tt_um_femto_TB.cir](/spice/tt_um_femto/tt_um_femto_TB.ci
 
 La aplicación del flujo de trabajo descrito se realizó con un multiplicador de 4 bits, con dos entradas A y B de 4 bits, salida PP de 8 bits y señales de init y done, al estar basados en una máquina de estados. Los archivos fuente se pueden encontrar en la carpeta /src dentro de [mult_4](/spice/mult_4/src). Un esquemático del diseño para entender su funcionamiento se ve a continuación, recordando que en este caso se manejan 4 bits en vez de 32 bits (como indica el esquemático):
 
-![GDSEXAMPLE](cores/mult_ASM/mult_32.pdf)
+![GDSEXAMPLE](img/mult_circuit.png)
 
 Sobre esta misma carpeta se puede encontrar el archivo Testbench usado para la simulación lógica con iverilog del multiplicador [mult_4_TB](/spice/mult_4/src/mult_4_TB.v). Para simplificar el proceso, se creó un [Makefile](/spice/mult_4/Makefile) con los comandos indicados en la sección Compilación indicando el path a los demás archivos fuente, simplificando todo el proceso al comando:
 
