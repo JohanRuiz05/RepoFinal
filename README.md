@@ -10,7 +10,7 @@ Para cumplir con el objetivo, se siguió el flujo de diseño VLSI, que comienza 
 
 ## Descripción general
 
-El procesador FemtoRV fue implementado inicialmente usando el lenguaje de descripción de hardware (HDL) Verilog, basado en un diseño por módulos lógicos controlados por un archivo top. El módulo principal (top) es femto.v, que instancia la memoria y los diferentes periféricos requeridos para el procesador. La memoria usaba la interfaz SPI (Serial Peripheral Interface) para la comunicación y contaba tanto con una memoria flash para el sistema (mappedSPIFlash.v), como una memoria RAM para el funcionamiento activo del procesador (mappedSPIRAM.v); mientras que como periférico se estableció la UART, necesaria para verificar la correcta ejecución de las diferentes tareas en el procesador (uart.v). Adicionalmente, se tenían periféricos de prueba como el multiplicador, divisor, entre otros, que no fueron utilizados para disminuir el tamaño y complejidad del sistema. Los archivos fuente en Verilog de la implementación se pueden encontrar en la carpeta [OpenLane/src](../src). 
+El procesador FemtoRV fue implementado inicialmente usando el lenguaje de descripción de hardware (HDL) Verilog, basado en un diseño por módulos lógicos controlados por un archivo top. El módulo principal (top) es femto.v, que instancia la memoria y los diferentes periféricos requeridos para el procesador. La memoria usaba la interfaz SPI (Serial Peripheral Interface) para la comunicación y contaba tanto con una memoria flash para el sistema (mappedSPIFlash.v), como una memoria RAM para el funcionamiento activo del procesador (mappedSPIRAM.v); mientras que como periférico se estableció la UART, necesaria para verificar la correcta ejecución de las diferentes tareas en el procesador (uart.v). Adicionalmente, se tenían periféricos de prueba como el multiplicador, divisor, entre otros, que no fueron utilizados para disminuir el tamaño y complejidad del sistema. Los archivos fuente en Verilog de la implementación se pueden encontrar en la carpeta [OpenLane/src](/OpenLane/src). 
 
 Para ver el flujo de diseño original, se puede consultar el git [VLSI](https://github.com/cicamargoba/VLSI.git). Este contiene los archivos originales generados durante el diseño inicial, permitiendo analizar sus componentes, entradas, salidas y lógica de implementación. 
 
@@ -18,7 +18,7 @@ Para ver el flujo de diseño original, se puede consultar el git [VLSI](https://
 
 ### Flujo ASIC
 
-Para la instalación de herramientas de flujo ASIC se puede seguir el README disponible en [README](https://github.com/cicamargoba/VLSI/blob/main/README.md), donde se incluye:
+Para la instalación de herramientas de flujo ASIC se puede seguir el README disponible en [VLSI](https://github.com/cicamargoba/VLSI/blob/main/README.md), donde se incluye:
 
 1. Yosys             -> Framework para Síntesis Verilog-RTL
 2. Icarus Verilog    -> COmpilador de Verilog para generar netlists 
@@ -76,7 +76,7 @@ El cual genera un archivo VCD (.vcd) que contiene las señales asociadas a las e
 
 Para pasar del diseño digital RTL descrito al diseño de chips ASIC, se usó la herramienta de código abierto OpenLane, que permite llegar a los resultados de implementación física para fabricación con varias etapas de procesamiento intermedias. El objetivo de este paso era asegurar que el diseño fuera adecuado a nivel de circuito real (basado en transistores) antes del paso de envío a Tiny Tapeout.
 
-OpenLane toma los archivos disponibles en la carpeta [OpenLane](/OpenLane) y automatiza el flujo de diseño en cinco etapas:
+OpenLane toma los archivos disponibles en la carpeta [/OpenLane](/OpenLane) y automatiza el flujo de diseño en cinco etapas:
 
 1. Síntesis: Convierte el código de Verilog en una netlist de compuertas lógicas por medio de la herramienta Yosys.
 2. Floorplan: Hace un plano de circuito a nivel de compuertas lógicas.
@@ -84,7 +84,7 @@ OpenLane toma los archivos disponibles en la carpeta [OpenLane](/OpenLane) y aut
 4. Routing: Conecta cada compuerta y bloque de manera física dentro del chip, respetando las restricciones de tiempo y área.
 5. Timing Analysis: Comprueba que las señales cumplan con tiempos, evitando errores de sincronización. 
 
-El ejemplo de salida para femto se puede ver en la carpeta del mismo nombre dentro de [OpenLane](/OpenLane/femto). La ejecución, sin embargo, debe realizarse desde la carpeta local de OpenLane (donde se descargó originalmente la herramienta), ya que esta contiene todos los archivos necesarios para poder realizar el proceso. De esta manera, el resultado se guardó en en la carpeta llamada /OpenLane/designs/<nombre diseño>/runs/full_guide/results, donde el nombre se define explícitamente en el comando:
+El ejemplo de salida para femto se puede ver en la carpeta del mismo nombre dentro de [/OpenLane](/OpenLane/femto). La ejecución, sin embargo, debe realizarse desde la carpeta local de OpenLane (donde se descargó originalmente la herramienta), ya que esta contiene todos los archivos necesarios para poder realizar el proceso. De esta manera, el resultado se guardó en en la carpeta llamada /OpenLane/designs/<nombre diseño>/runs/full_guide/results, donde el nombre se define explícitamente en el comando:
 
 ```bash
 make mount
@@ -97,11 +97,11 @@ En el ejemplo, se usó como nombre de diseño femto. El segundo comando solo deb
 ./flow.tcl -design <design name> -tag full_guide -overwrite 
 ```
 
-En la carpeta /results se tienen los resultados para cada uno de las etapas de diseño, además de una carpeta llamada [final](/OpenLane/femto/runs/full_guide/results) con los archivos más relevantes para los pasos posteriores, incluyendo la salida de cada una de las etapas y el resultado del chip físico implementado en la carpeta /final. 
+En la carpeta /results se tienen los resultados para cada uno de las etapas de diseño, además de una carpeta llamada [/final](/OpenLane/femto/runs/full_guide/results/final) con los archivos más relevantes para los pasos posteriores, incluyendo la salida de cada una de las etapas y el resultado del chip físico implementado en la carpeta /final. 
 
 ### 3. Manejo de Magic
 
-Entre los archivos de salida en [results](/OpenLane/femto/runs/full_guide/results), resulta importante el .mag que contiene la carpeta /final, que corresponde al diagrama de compuertas del place and route en Magic, a partir de la herramienta Sky130. Magic sirve como editor y visor del layout físico del circuito integrado sintetizado, mostrando las diferentes capas, polígonos y rutas construidas. Al ser una representación física no se puede usar para simulación, por lo que es necesario convertirla al formato SPICE por medio de la opción de extracción de esta herramienta, obteniendo un netlist completo que representa el chip físico a través de transistores NMOS y PMOS y las conexiones entre capas, realizando los siguientes comandos en la terminal de Magic:
+Entre los archivos de salida en [/results](/OpenLane/femto/runs/full_guide/results), resulta importante el .mag que contiene la carpeta /final, que corresponde al diagrama de compuertas del place and route en Magic, a partir de la herramienta Sky130. Magic sirve como editor y visor del layout físico del circuito integrado sintetizado, mostrando las diferentes capas, polígonos y rutas construidas. Al ser una representación física no se puede usar para simulación, por lo que es necesario convertirla al formato SPICE por medio de la opción de extracción de esta herramienta, obteniendo un netlist completo que representa el chip físico a través de transistores NMOS y PMOS y las conexiones entre capas, realizando los siguientes comandos en la terminal de Magic:
 
 ```bash
 gds noduplicates
@@ -135,7 +135,7 @@ Una vez comprobado que se tienen todos los archivos necesarios, se debe abrir la
 
 ![TIM](img/tim_export.png)
 
-El archivo .tim posibilita generar un netlist de SPICE con las señales seleccionadas como entradas del circuito en SPICE para la simulación final por medio de Xyce o Ngspice. La integración de los archivos .tim y .spice se realiza en un archivo .cir, formato que requieren las dos herramientas mencionadas para el procesamiento, donse se instancia tanto la temporización de las señales como la representación edel circuito. Para realizar la conversión de .tim a .cir se usó un script de Python llamado [tim_to_pwl.py](spice/tim_to_pwl) que se encargaba de traducir los datos al formato necesario en el .cir (señales PWL o DC y simulación transient) sin alterar los nombres de las señales. El parámetro editable más relevante del script es epsilon, ya que define el tiempo de cambio del flanco de las señales. Tiempos muy cortos (inferiores a 1e-09) ocasionaban errores en Xyce, por lo que se eligió este valor para asegurar el funcionamiento. El comando para ejecutar el script es:
+El archivo .tim posibilita generar un netlist de SPICE con las señales seleccionadas como entradas del circuito en SPICE para la simulación final por medio de Xyce o Ngspice. La integración de los archivos .tim y .spice se realiza en un archivo .cir, formato que requieren las dos herramientas mencionadas para el procesamiento, donse se instancia tanto la temporización de las señales como la representación edel circuito. Para realizar la conversión de .tim a .cir se usó un script de Python llamado [tim_to_pwl.py](/spice/tim_to_pwl.py) que se encargaba de traducir los datos al formato necesario en el .cir (señales PWL o DC y simulación transient) sin alterar los nombres de las señales. El parámetro editable más relevante del script es epsilon, ya que define el tiempo de cambio del flanco de las señales. Tiempos muy cortos (inferiores a 1e-09) ocasionaban errores en Xyce, por lo que se eligió este valor para asegurar el funcionamiento. El comando para ejecutar el script es:
 
 ```bash
 python3 ../tim_to_pwl.py <tim filename>
@@ -175,7 +175,7 @@ Concluyendo así la verificación del diseño realizado a partir de la simulaci�
 
 ### 5. Integración con Tiny Tapeout
 
-Para enviar un diseño a Tiny Tapeout es necesario realizar una serie de cambios al código de origen para adaptarlo a los requerimientos de la plataforma, obligatorios para su aceptación. El flujo de trabajo se ejecutaba de manera automática desde Github, usando herramientas muy similares a las descritas hasta este paso. La plantilla usada para un diseño con sky se encuentra en [Tiny Tapeout](https://github.com/TinyTapeout/ttsky-verilog-template), donde se indican también los pasos necesarios para participar en el proyecto; por lo que se hizo una copia y se trabajó sobre ella. 
+Para enviar un diseño a Tiny Tapeout es necesario realizar una serie de cambios al código de origen para adaptarlo a los requerimientos de la plataforma, obligatorios para su aceptación. El flujo de trabajo se ejecutaba de manera automática desde Github, usando herramientas muy similares a las descritas hasta este paso. La plantilla usada para un diseño con sky se encuentra en el siguiente [link](https://github.com/TinyTapeout/ttsky-verilog-template) del Github de Tiny Tapeout, donde se indican también los pasos necesarios para participar en el proyecto; por lo que se hizo una copia y se trabajó sobre ella. 
 
 ![TEMPLATE](img/Tiny_Template.png)
 
@@ -215,9 +215,9 @@ Con el resultado, se repiten los pasos indicados en la sección Simulación de S
 
 ### Procesador FemtoRV (femto)
 
-Habiendo realizado los primeros tres pasos del flujo de trabajo como fue descrito anteriormente, cuyos resultados se encuentran en la presente carpeta del repositorio, se procedió a realizar la extracción en SPICE del resultado a partir del archivo .mag, recordando que está ubicado en [results](/OpenLane/femto/runs/full_guide/results/final), siguiendo los comandos descritos en la sección Manejo de Magic. El resultado obtenido se ubicó en la carpeta [spice/femto](spice/femto/femto.spice), que contiene todos los archivos de diseño requeridos y resultantes desde este paso.
+Habiendo realizado los primeros tres pasos del flujo de trabajo como fue descrito anteriormente, cuyos resultados se encuentran en la presente carpeta del repositorio, se procedió a realizar la extracción en SPICE del resultado a partir del archivo .mag, recordando que está ubicado en [/final](/OpenLane/femto/runs/full_guide/results/final) dentro de la carpeta /results, siguiendo los comandos descritos en la sección Manejo de Magic. El resultado obtenido se ubicó en la carpeta [/femto](/spice/femto/femto.spice), que contiene todos los archivos de diseño requeridos y resultantes desde este paso.
 
-Teniendo lo anterior, se abrió el archivo de GTKWave y se ubicaron las señales de interés para la simulación en el visor de formas de onda. Para femto se tenían cuatro señales necesarias: clk (clock del sistema), resetn (reset del sistema), spi_miso y spi_miso_ram (interfaces master input slave output). Una vez definidas, se exporta el archivo TIM y se le da como nombre [femto.tim](spice/femto/femto.tim).
+Teniendo lo anterior, se abrió el archivo de GTKWave y se ubicaron las señales de interés para la simulación en el visor de formas de onda. Para femto se tenían cuatro señales necesarias: clk (clock del sistema), resetn (reset del sistema), spi_miso y spi_miso_ram (interfaces master input slave output). Una vez definidas, se exporta el archivo TIM y se le da como nombre [femto.tim](/spice/femto/femto.tim).
 
 El resultado, como fue descrito, es un archivo .tim a partir del cual se puede generar el archivo .cir que recibe como entrada Ngspice o Xyce, y que contiene una representación temporal de las señales a simular, a través de flancos digitales de subida y bajada entre 0 (0 V) y 1 (3.3 V). Para la conversión usó el script de Python tim_to_pwl.py, disponible en la carpeta [/spice](/spice/tim_to_pwl.py) para su uso en otros diseños, cuya ejecución generó un .cir del mismo nombre [femto.cir](/spice/femto/femto.cir) con las señales exportadas de GTKWave. El resultado se ve a continuación, donde se destacan como parámetros importantes el tiempo de simulación (.tran), que aumenta o reduce los recursos necesarios para la simulación, el llamado a las librerías SPICE de sky130 y el include del archivo .spice generado en el anterior paso.
 
@@ -257,7 +257,7 @@ export PDK=sky130A
 magic -T $PDK_ROOT/sky130A/libs.tech/magic/sky130A.tech tt_um_femto.gds
 ```
 
-Posteriormente, se configuró la extracción solo de dispositivos (sin parásitos), siguiendo los pasos de la sección de Manejo de Magic. El archivo resultante permite repetir los pasos descritos durante la simulación del diseño, ubicando todos los archivos de salida en la carpeta [tt_um_femto](spice/tt_um_femto). Los archivos .ext generados durante la extracción, salvo por tt_um_femto.ext (sobre el que se aplica ext2spice), no fueron usados. 
+Posteriormente, se configuró la extracción solo de dispositivos (sin parásitos), siguiendo los pasos de la sección de Manejo de Magic. El archivo resultante permite repetir los pasos descritos durante la simulación del diseño, ubicando todos los archivos de salida en la carpeta [tt_um_femto](/spice/tt_um_femto). Los archivos .ext generados durante la extracción, salvo por tt_um_femto.ext (sobre el que se aplica ext2spice), no fueron usados. 
 
 Con lo anterior, basta regresar al archivo .tim generado a partir de la traza [tt_um_femto_sim_1.gtk](spice/tt_um_femto/tt_um_femto_sim_1.gtk), que se observa a continuación, para su conversión a un nuevo .cir.
 
@@ -311,17 +311,17 @@ Así, se descargaron los resultados desde Github Actions, seleccionando la últi
 
 ![TINY_RESULTS1](img/tiny_results_mult.png)
 
-La carpeta de salida de Tiny Tapeout se añadió al presente repositorio, y se puede encontrar en [tt_um_mult_4](spice/tt_um_mult_4/tt_submission). Los demás archivos corresponden a los resultados más relevantes del proceso para los pasos posteriores, salvo por tt_um_mult_4_TB, que es el mismo testbench original pero adaptado para funcionar con tt_um_mult_4.v. Así, se exportó con Magic el archivo tt_um_mult_4.gds, disponible en [/tt_submission](spice/tt_um_mult_4/tt_submission/tt_submission), para obtener el archivo .spice, como se ve a continuación.
+La carpeta de salida de Tiny Tapeout se añadió al presente repositorio, y se puede encontrar en [tt_um_mult_4](/spice/tt_um_mult_4/tt_submission). Los demás archivos corresponden a los resultados más relevantes del proceso para los pasos posteriores, salvo por tt_um_mult_4_TB, que es el mismo testbench original pero adaptado para funcionar con tt_um_mult_4.v. Así, se exportó con Magic el archivo tt_um_mult_4.gds, disponible en [/tt_submission](spice/tt_um_mult_4/tt_submission/tt_submission), para obtener el archivo .spice, como se ve a continuación.
 
 ![MULTEXP](img/mult_exp.png)
 
-Luego, se convirtió el archivo .tim que había sido generado en el primer paso a partir de la traza .gtkw a .cir con tim_to_pwl.py, y se cambiaron los nombres de las señales generadas para que concordaran con las de Tiny Tapeout (recordando las definiciones en info.yaml), de tal manera que el circuito recibiera las entradas correctamente. Adicionalmente, se redujo el tiempo de simulación a 2us (reduciendo complejidad de simulación y concordando con el .tim) y se copió el contenido del archivo .spice. El archivo .cir se encuentra en [/tt_mult_4](spice/tt_um_mult_4/tt_um_mult_4.cir) para su análisis; así como el archivo exportado [tt_um_mult_4.spice](spice/tt_um_mult_4/tt_um_mult_4.spice).
+Luego, se convirtió el archivo .tim que había sido generado en el primer paso a partir de la traza .gtkw a .cir con tim_to_pwl.py, y se cambiaron los nombres de las señales generadas para que concordaran con las de Tiny Tapeout (recordando las definiciones en info.yaml), de tal manera que el circuito recibiera las entradas correctamente. Adicionalmente, se redujo el tiempo de simulación a 2us (reduciendo complejidad de simulación y concordando con el .tim) y se copió el contenido del archivo .spice. El archivo .cir se encuentra en [/tt_mult_4](/spice/tt_um_mult_4/tt_um_mult_4.cir) para su análisis; así como el archivo exportado [tt_um_mult_4.spice](/spice/tt_um_mult_4/tt_um_mult_4.spice).
 
 Con lo anterior, se ejecutó la simulación en Xyce sobre tt_um_mult_4.cir. Se usaron 8 núcleos para aumentar la eficiencia del procesamiento, y la ejecución tardó aproximadamente 35 minutos en terminar. El resultado se observa en la siguiente imagen.
 
 ![MULTFIN](img/mult_fin.png)
 
-Finalmente, se modificó el archivo [plot_Mult_4](spice/tt_um_mult_4/plot_Mult_4.py) para que los nombres de las señales concordaran con las de SPICE y que la variable filepath apuntara al .raw generado. El resultado, que muestra el mismo comportamiento que el de la simulación lógica en GTKWave, se ve a continuación. Así, se verifica que el procedimiento realizado fue correcto y el diseño VLSI implementado tanto de manera local (con herramientas open source) como en Tiny Tapeout hace posible el diseño de chips con múltiples propósitos. 
+Finalmente, se modificó el archivo [plot_Mult_4](/spice/tt_um_mult_4/plot_Mult_4.py) para que los nombres de las señales concordaran con las de SPICE y que la variable filepath apuntara al .raw generado. El resultado, que muestra el mismo comportamiento que el de la simulación lógica en GTKWave, se ve a continuación. Así, se verifica que el procedimiento realizado fue correcto y el diseño VLSI implementado tanto de manera local (con herramientas open source) como en Tiny Tapeout hace posible el diseño de chips con múltiples propósitos. 
 
 ![MULTRES](img/mult_result.png)
 
