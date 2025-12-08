@@ -311,7 +311,7 @@ Así, se descargaron los resultados desde Github Actions, seleccionando la últi
 
 ![TINY_RESULTS1](img/tiny_results_mult.png)
 
-La carpeta de salida de Tiny Tapeout se añadió al presente repositorio, y se puede encontrar en [tt_um_mult_4](/spice/tt_um_mult_4/tt_submission). Los demás archivos corresponden a los resultados más relevantes del proceso para los pasos posteriores, salvo por tt_um_mult_4_TB, que es el mismo testbench original pero adaptado para funcionar con tt_um_mult_4.v. Así, se exportó con Magic el archivo tt_um_mult_4.gds, disponible en [/tt_submission](spice/tt_um_mult_4/tt_submission/tt_submission), para obtener el archivo .spice, como se ve a continuación.
+La carpeta de salida de Tiny Tapeout se añadió al presente repositorio, y se puede encontrar en [/tt_um_mult_4](/spice/tt_um_mult_4/tt_submission). Los demás archivos corresponden a los resultados más relevantes del proceso para los pasos posteriores, salvo por tt_um_mult_4_TB, que es el mismo testbench original pero adaptado para funcionar con tt_um_mult_4.v. Así, se exportó con Magic el archivo tt_um_mult_4.gds, disponible en [/tt_submission](spice/tt_um_mult_4/tt_submission/tt_submission), para obtener el archivo .spice, como se ve a continuación.
 
 ![MULTEXP](img/mult_exp.png)
 
